@@ -90,6 +90,15 @@
             font-size: 120px;
             margin-bottom: 20px;
             border: 2px dashed #ddd;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .game-info {
@@ -199,7 +208,9 @@
         </div>
         
         <a href="game.html" class="game-card">
-            <div class="game-thumbnail">📰</div>
+            <div class="game-thumbnail">
+                <img src="thumbnail.png" alt="Dagens Quizord" onerror="this.style.display='none'; this.parentElement.style.fontSize='120px'; this.parentElement.textContent='📰'">
+            </div>
             <div class="game-info">
                 <div class="game-title">Dagens Quizord</div>
                 <div class="game-description">Klassiska ordlekar med ett hemligt tema</div>
