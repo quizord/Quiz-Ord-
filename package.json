@@ -1,0 +1,11 @@
+{
+  "name": "quizord",
+  "version": "1.0.0",
+  "description": "En ordlek för korsordslösare",
+  "scripts": {
+    "generate-thumbnail": "node generate-thumbnail.js"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2"
+  }
+}
