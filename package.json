@@ -1,11 +1,7 @@
 {
-  "name": "quizord",
-  "version": "1.0.0",
-  "description": "En ordlek för korsordslösare",
-  "scripts": {
-    "generate-thumbnail": "node generate-thumbnail.js"
-  },
-  "dependencies": {
-    "canvas": "^2.11.2"
-  }
+  "content": "{\n  \"name\": \"quizord\",\n  \"version\": \"1.0.0\",\n  \"description\": \"En ordlek för korsordslösare\",\n  \"scripts\": {\n    \"generate-thumbnail\": \"node generate-thumbnail.js\"\n  },\n  \"dependencies\": {\n    \"canvas\": \"^2.11.2\"\n  }\n}\n",
+  "message": "Add package.json with canvas dependency",
+  "owner": "quizord",
+  "path": "package.json",
+  "repo": "quizord"
 }
