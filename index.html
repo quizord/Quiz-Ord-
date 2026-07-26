@@ -1,1 +1,338 @@
 
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Quizord - Gåtfull Ordlek</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 80px;
+            margin: 0 0 20px 0;
+        }
+        
+        h1 {
+            color: #333;
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+        }
+        
+        .tagline {
+            color: #666;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin: 0 0 30px 0;
+        }
+        
+        .intro-text {
+            color: #555;
+            line-height: 1.6;
+            margin: 0 0 30px 0;
+            font-size: 1rem;
+            text-align: left;
+        }
+        
+        .intro-text strong {
+            color: #333;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+            border-color: #764ba2;
+        }
+        
+        .game-thumbnail {
+            width: 100%;
+            height: 350px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .thumbnail-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .game-info {
+            text-align: left;
+        }
+        
+        .game-title {
+            font-size: 1.4rem;
+            color: #333;
+            margin: 0 0 8px 0;
+            font-weight: bold;
+        }
+        
+        .game-description {
+            color: #666;
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+        }
+        
+        .game-meta {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .difficulty {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .difficulty.easy { background: #27ae60; }
+        .difficulty.medium { background: #f39c12; }
+        .difficulty.hard { background: #e74c3c; }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .logo {
+                font-size: 60px;
+            }
+            .game-thumbnail {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🧩</div>
+            <h1>Quizord</h1>
+            <div class="tagline">"Ofta enformig och långrandig men sällan oborstad"</div>
+        </div>
+        
+        <div class="intro-text">
+            <strong>Välkommen till Quizord!</strong> En spännande ordlek för korsordslösare. 
+            <br><br>
+            Lösa korsorden för att få fram ledtrådar, sedan kombinera dem för att hitta det hemliga lösningsordet. 
+            <strong>En gåta inom gåtan!</strong>
+        </div>
+        
+        <a href="game.html" class="game-card">
+            <div class="game-thumbnail">
+                <canvas id="previewCanvas" class="thumbnail-canvas"></canvas>
+            </div>
+            <div class="game-info">
+                <div class="game-title">Dagens Quizord</div>
+                <div class="game-description">Klassiska ordlekar med ett hemligt tema</div>
+                <div class="game-meta">
+                    <span class="meta-item">🎯 Klicka för att spela</span>
+                    <span class="difficulty easy">Lätt-Medel</span>
+                </div>
+            </div>
+        </a>
+        
+        <button class="cta-button" onclick="window.location.href='game.html'">
+            ▶️ Starta spelet
+        </button>
+        
+        <div class="footer">
+            <p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
+        </div>
+    </div>
+
+    <script>
+        // Denna funktion läser game.html och extraherar korsordsdata
+        async function loadAndDrawPreview() {
+            try {
+                const response = await fetch('game.html');
+                const html = await response.text();
+                
+                // Extrahera griddata från game.html
+                const gridMatch = html.match(/var\s+grid\s*=\s*(\[\[.*?\]\]);/s);
+                if (!gridMatch) {
+                    drawFallback();
+                    return;
+                }
+                
+                // Parse griddata
+                let gridData = eval(gridMatch[1]);
+                
+                // Rita preview på canvas
+                drawGridPreview(gridData);
+            } catch (error) {
+                console.log('Kunde inte ladda preview, visar fallback');
+                drawFallback();
+            }
+        }
+        
+        function drawGridPreview(grid) {
+            const canvas = document.getElementById('previewCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Sätt canvas-storlek
+            canvas.width = 400;
+            canvas.height = 350;
+            
+            const gridSize = grid.length;
+            const cellSize = Math.min(canvas.width, canvas.height) / (gridSize + 2);
+            const offsetX = (canvas.width - gridSize * cellSize) / 2;
+            const offsetY = (canvas.height - gridSize * cellSize) / 2 + 20;
+            
+            // Rita bakgrund
+            ctx.fillStyle = '#f5f5f5';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Rita gridceller
+            for (let y = 0; y < gridSize; y++) {
+                for (let x = 0; x < gridSize; x++) {
+                    const cell = grid[y][x];
+                    const px = offsetX + x * cellSize;
+                    const py = offsetY + y * cellSize;
+                    
+                    if (cell === null) {
+                        // Tom cell - svart
+                        ctx.fillStyle = '#333333';
+                    } else if (cell === '↓' || cell === '→') {
+                        // Pilcell - mörkblå
+                        ctx.fillStyle = '#000080';
+                    } else if (typeof cell === 'string' && /^[0-9]+$/.test(cell)) {
+                        // Nummer - ljusblå
+                        ctx.fillStyle = '#7ec1f8';
+                    } else {
+                        // Bokstav - vit
+                        ctx.fillStyle = '#ffffff';
+                    }
+                    
+                    ctx.fillRect(px, py, cellSize, cellSize);
+                    ctx.strokeStyle = '#999999';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(px, py, cellSize, cellSize);
+                    
+                    // Rita bokstav/nummer
+                    if (cell && cell !== null) {
+                        ctx.fillStyle = cell === '↓' || cell === '→' ? '#ffffff' : '#333333';
+                        ctx.font = Math.max(8, cellSize * 0.5) + 'px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(String(cell), px + cellSize / 2, py + cellSize / 2);
+                    }
+                }
+            }
+            
+            // Titel
+            ctx.fillStyle = '#667eea';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Dagens Quizord', canvas.width / 2, 25);
+        }
+        
+        function drawFallback() {
+            const canvas = document.getElementById('previewCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = 400;
+            canvas.height = 350;
+            
+            ctx.fillStyle = '#f5f5f5';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#667eea';
+            ctx.font = 'bold 60px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('🧩', canvas.width / 2, canvas.height / 2);
+        }
+        
+        // Ladda preview när sidan är klar
+        window.addEventListener('load', loadAndDrawPreview);
+    </script>
+</body>
+</html>
