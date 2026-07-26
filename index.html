@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -91,13 +90,12 @@
             margin-bottom: 20px;
             border: 2px solid #ddd;
             overflow: hidden;
-            position: relative;
         }
         
-        .thumbnail-canvas {
+        .game-thumbnail img {
             width: 100%;
             height: 100%;
-            display: block;
+            object-fit: contain;
         }
         
         .game-info {
@@ -207,7 +205,7 @@
         
         <a href="game.html" class="game-card">
             <div class="game-thumbnail">
-                <canvas id="previewCanvas" class="thumbnail-canvas"></canvas>
+                <img src="Thumbnail.png" alt="QuizOrd teaser">
             </div>
             <div class="game-info">
                 <div class="game-title">Dagens Quizord</div>
@@ -227,112 +225,5 @@
             <p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
         </div>
     </div>
-
-    <script>
-        // Denna funktion läser game.html och extraherar korsordsdata
-        async function loadAndDrawPreview() {
-            try {
-                const response = await fetch('game.html');
-                const html = await response.text();
-                
-                // Extrahera griddata från game.html
-                const gridMatch = html.match(/var\s+grid\s*=\s*(\[\[.*?\]\]);/s);
-                if (!gridMatch) {
-                    drawFallback();
-                    return;
-                }
-                
-                // Parse griddata
-                let gridData = eval(gridMatch[1]);
-                
-                // Rita preview på canvas
-                drawGridPreview(gridData);
-            } catch (error) {
-                console.log('Kunde inte ladda preview, visar fallback');
-                drawFallback();
-            }
-        }
-        
-        function drawGridPreview(grid) {
-            const canvas = document.getElementById('previewCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Sätt canvas-storlek
-            canvas.width = 400;
-            canvas.height = 350;
-            
-            const gridSize = grid.length;
-            const cellSize = Math.min(canvas.width, canvas.height) / (gridSize + 2);
-            const offsetX = (canvas.width - gridSize * cellSize) / 2;
-            const offsetY = (canvas.height - gridSize * cellSize) / 2 + 20;
-            
-            // Rita bakgrund
-            ctx.fillStyle = '#f5f5f5';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Rita gridceller
-            for (let y = 0; y < gridSize; y++) {
-                for (let x = 0; x < gridSize; x++) {
-                    const cell = grid[y][x];
-                    const px = offsetX + x * cellSize;
-                    const py = offsetY + y * cellSize;
-                    
-                    if (cell === null) {
-                        // Tom cell - svart
-                        ctx.fillStyle = '#333333';
-                    } else if (cell === '↓' || cell === '→') {
-                        // Pilcell - mörkblå
-                        ctx.fillStyle = '#000080';
-                    } else if (typeof cell === 'string' && /^[0-9]+$/.test(cell)) {
-                        // Nummer - ljusblå
-                        ctx.fillStyle = '#7ec1f8';
-                    } else {
-                        // Bokstav - vit
-                        ctx.fillStyle = '#ffffff';
-                    }
-                    
-                    ctx.fillRect(px, py, cellSize, cellSize);
-                    ctx.strokeStyle = '#999999';
-                    ctx.lineWidth = 1;
-                    ctx.strokeRect(px, py, cellSize, cellSize);
-                    
-                    // Rita bokstav/nummer
-                    if (cell && cell !== null) {
-                        ctx.fillStyle = cell === '↓' || cell === '→' ? '#ffffff' : '#333333';
-                        ctx.font = Math.max(8, cellSize * 0.5) + 'px Arial';
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(String(cell), px + cellSize / 2, py + cellSize / 2);
-                    }
-                }
-            }
-            
-            // Titel
-            ctx.fillStyle = '#667eea';
-            ctx.font = 'bold 18px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText('Dagens Quizord', canvas.width / 2, 25);
-        }
-        
-        function drawFallback() {
-            const canvas = document.getElementById('previewCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = 400;
-            canvas.height = 350;
-            
-            ctx.fillStyle = '#f5f5f5';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#667eea';
-            ctx.font = 'bold 60px Arial';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('🧩', canvas.width / 2, canvas.height / 2);
-        }
-        
-        // Ladda preview när sidan är klar
-        window.addEventListener('load', loadAndDrawPreview);
-    </script>
 </body>
 </html>
