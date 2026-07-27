@@ -61,85 +61,24 @@
             color: #27ae60;
         }
         
-        .game-card {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border: 2px solid #667eea;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 0 0 20px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
-            border-color: #764ba2;
-        }
-        
         .game-thumbnail {
             width: 100%;
             height: 350px;
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 2px solid #ddd;
             overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
         .game-thumbnail img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-        }
-        
-        .game-info {
-            text-align: left;
-            padding: 0 5px;
-        }
-        
-        .game-title {
-            font-size: 1.3rem;
-            color: #333;
-            margin: 0 0 5px 0;
-            font-weight: bold;
-        }
-        
-        .game-description {
-            color: #666;
-            margin: 0 0 12px 0;
-            font-size: 0.9rem;
-        }
-        
-        .game-meta {
-            display: flex;
-            gap: 15px;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #667eea;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        
-        .difficulty {
-            background: #27ae60;
-            color: white;
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
         }
         
         .cta-section {
@@ -216,20 +155,10 @@
             <span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
         </div>
         
-        <!-- SPELKORT MED THUMBNAIL -->
-        <a href="game.html" class="game-card">
-            <div class="game-thumbnail">
-                <img src="Thumbnail.png" alt="QuizOrd teaser">
-            </div>
-            <div class="game-info">
-                <div class="game-title">🧩 Dagens QuizOrd</div>
-                <div class="game-description">En gåta inom gåtan – lös korsordet och knäck koden!</div>
-                <div class="game-meta">
-                    <span class="meta-item">🎯 Klicka för att spela</span>
-                    <span class="difficulty">Lätt-Medel</span>
-                </div>
-            </div>
-        </a>
+        <!-- TEASER-BILD -->
+        <div class="game-thumbnail">
+            <img src="Thumbnail.png" alt="QuizOrd teaser">
+        </div>
         
         <!-- STARTA SPELET-KNAPP -->
         <div class="cta-section">
