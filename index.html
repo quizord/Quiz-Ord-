@@ -122,8 +122,28 @@
             font-style: italic;
         }
         
-        /* Större skärmar i liggande läge */
-        @media (min-width: 1200px) {
+        /* iPad stående + alla mobiler - STA LAT */
+        @media (max-width: 1024px), (orientation: portrait) {
+            .container {
+                padding: 25px 20px 30px 20px;
+            }
+            .welcome-text {
+                font-size: 1rem;
+            }
+            .game-thumbnail {
+                height: 280px;
+            }
+            .cta-button {
+                padding: 14px 35px;
+                font-size: 1rem;
+            }
+            .logo-container img {
+                max-width: 220px;
+            }
+        }
+        
+        /* Endast stora skärmar i liggande */
+        @media (min-width: 1025px) and (orientation: landscape) {
             .container {
                 padding: 20px 35px 25px 35px;
             }
@@ -164,26 +184,6 @@
             .footer-note {
                 font-size: 0.75rem;
                 margin-top: 4px;
-            }
-        }
-        
-        /* Allt under 1200px (iPad, mobiler) */
-        @media (max-width: 1199px) {
-            .container {
-                padding: 25px 20px 30px 20px;
-            }
-            .welcome-text {
-                font-size: 1rem;
-            }
-            .game-thumbnail {
-                height: 280px;
-            }
-            .cta-button {
-                padding: 14px 35px;
-                font-size: 1rem;
-            }
-            .logo-container img {
-                max-width: 220px;
             }
         }
     </style>
