@@ -122,8 +122,8 @@
             font-style: italic;
         }
         
-        /* iPad stående + alla mobiler - STA LAT */
-        @media (max-width: 1024px), (orientation: portrait) {
+        /* Mobil och iPad stående - staplat */
+        @media (max-width: 768px) {
             .container {
                 padding: 25px 20px 30px 20px;
             }
@@ -142,45 +142,57 @@
             }
         }
         
-        /* Endast stora skärmar i liggande */
-        @media (min-width: 1025px) and (orientation: landscape) {
+        /* iPad stående specifikt */
+        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+            .container {
+                padding: 25px 20px 30px 20px;
+            }
+            .welcome-text {
+                font-size: 1rem;
+            }
+            .game-thumbnail {
+                height: 280px;
+            }
+            .cta-button {
+                padding: 14px 35px;
+                font-size: 1rem;
+            }
+            .logo-container img {
+                max-width: 220px;
+            }
+        }
+        
+        /* Desktop liggande - kompakt */
+        @media (min-width: 1025px) {
             .container {
                 padding: 20px 35px 25px 35px;
             }
-            
             .logo-container {
                 margin-bottom: 10px;
             }
-            
             .logo-container img {
                 max-width: 200px;
             }
-            
             .welcome-text {
                 font-size: 1rem;
                 margin: 0 0 15px 0;
             }
-            
             .game-card {
                 padding: 15px;
                 margin: 0 0 10px 0;
             }
-            
             .game-thumbnail {
                 height: 250px;
                 margin-bottom: 15px;
             }
-            
             .cta-button {
                 padding: 12px 40px;
                 font-size: 1rem;
             }
-            
             .footer {
                 padding-top: 12px;
                 font-size: 0.8rem;
             }
-            
             .footer-note {
                 font-size: 0.75rem;
                 margin-top: 4px;
