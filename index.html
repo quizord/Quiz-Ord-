@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizord - Gåtfull Ordlek</title>
     <style>
         * { box-sizing: border-box; }
@@ -81,21 +81,15 @@
         
         .game-thumbnail {
             width: 100%;
-            height: 350px;
+            height: 250px;
             background: white;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 120px;
             margin-bottom: 20px;
-            border: 2px solid #ddd;
-            overflow: hidden;
-        }
-        
-        .game-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            border: 2px dashed #ddd;
         }
         
         .game-info {
@@ -183,7 +177,8 @@
                 font-size: 60px;
             }
             .game-thumbnail {
-                height: 280px;
+                height: 200px;
+                font-size: 80px;
             }
         }
     </style>
@@ -204,9 +199,7 @@
         </div>
         
         <a href="game.html" class="game-card">
-            <div class="game-thumbnail">
-                <img src="Thumbnail.png" alt="QuizOrd teaser">
-            </div>
+            <div class="game-thumbnail">📰</div>
             <div class="game-info">
                 <div class="game-title">Dagens Quizord</div>
                 <div class="game-description">Klassiska ordlekar med ett hemligt tema</div>
