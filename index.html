@@ -2,13 +2,13 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizord - Gåtfull Ordlek</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>QuizOrd - Gåtfull Ordlek</title>
     <style>
         * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             margin: 0;
             padding: 20px;
             min-height: 100vh;
@@ -18,47 +18,47 @@
         }
         
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            max-width: 650px;
             width: 100%;
-            padding: 40px 30px;
+            padding: 30px 35px 40px 35px;
             text-align: center;
         }
         
-        .header {
-            margin-bottom: 30px;
+        .logo-container {
+            margin-bottom: 20px;
         }
         
-        .logo {
-            font-size: 80px;
-            margin: 0 0 20px 0;
+        .logo-container img {
+            max-width: 300px;
+            width: 80%;
+            height: auto;
         }
         
-        h1 {
+        .welcome-text {
             color: #333;
-            margin: 0 0 10px 0;
-            font-size: 2.5rem;
-        }
-        
-        .tagline {
-            color: #666;
-            font-size: 1.1rem;
-            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.8;
             margin: 0 0 30px 0;
+            font-weight: 500;
         }
         
-        .intro-text {
-            color: #555;
-            line-height: 1.6;
-            margin: 0 0 30px 0;
-            font-size: 1rem;
-            text-align: left;
+        .welcome-text .highlight {
+            font-weight: 700;
         }
         
-        .intro-text strong {
-            color: #333;
+        .highlight-read {
+            color: #2c5aa0;
+        }
+        
+        .highlight-solve {
+            color: #f39c12;
+        }
+        
+        .highlight-crack {
+            color: #27ae60;
         }
         
         .game-card {
@@ -66,157 +66,112 @@
             border: 2px solid #667eea;
             border-radius: 15px;
             padding: 20px;
-            margin: 30px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
-            border-color: #764ba2;
+            margin: 0 0 15px 0;
         }
         
         .game-thumbnail {
             width: 100%;
-            height: 250px;
+            height: 350px;
             background: white;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 120px;
             margin-bottom: 20px;
-            border: 2px dashed #ddd;
+            border: 2px solid #ddd;
+            overflow: hidden;
         }
         
-        .game-info {
-            text-align: left;
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
-        
-        .game-title {
-            font-size: 1.4rem;
-            color: #333;
-            margin: 0 0 8px 0;
-            font-weight: bold;
-        }
-        
-        .game-description {
-            color: #666;
-            margin: 0 0 15px 0;
-            font-size: 0.95rem;
-        }
-        
-        .game-meta {
-            display: flex;
-            gap: 15px;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #667eea;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .difficulty {
-            background: #667eea;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .difficulty.easy { background: #27ae60; }
-        .difficulty.medium { background: #f39c12; }
-        .difficulty.hard { background: #e74c3c; }
         
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 40px;
+            padding: 16px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
         
         .cta-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
         }
         
         .footer {
-            margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #eee;
             color: #999;
             font-size: 0.9rem;
         }
         
+        .footer-note {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
         @media (max-width: 600px) {
             .container {
-                padding: 30px 20px;
+                padding: 25px 20px 30px 20px;
             }
-            h1 {
-                font-size: 2rem;
-            }
-            .logo {
-                font-size: 60px;
+            .welcome-text {
+                font-size: 1rem;
             }
             .game-thumbnail {
-                height: 200px;
-                font-size: 80px;
+                height: 250px;
+            }
+            .cta-button {
+                padding: 14px 35px;
+                font-size: 1rem;
+            }
+            .logo-container img {
+                max-width: 220px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo">🧩</div>
-            <h1>Quizord</h1>
-            <div class="tagline">"Ofta enformig och långrandig men sällan oborstad"</div>
+        
+        <!-- LOGGA HÖGST UPP -->
+        <div class="logo-container">
+            <img src="logo.png" alt="QuizOrd Logga">
         </div>
         
-        <div class="intro-text">
-            <strong>Välkommen till Quizord!</strong> En spännande ordlek för korsordslösare. 
-            <br><br>
-            Lösa korsorden för att få fram ledtrådar, sedan kombinera dem för att hitta det hemliga lösningsordet. 
-            <strong>En gåta inom gåtan!</strong>
+        <!-- VÄLKOMSTTEXT -->
+        <div class="welcome-text">
+            Välkommen till QuizOrd!<br>
+            <span class="highlight highlight-read">LÄS</span> gåtan · 
+            <span class="highlight highlight-solve">LÖS</span> korsordet · 
+            <span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
         </div>
         
-        <a href="game.html" class="game-card">
-            <div class="game-thumbnail">📰</div>
-            <div class="game-info">
-                <div class="game-title">Dagens Quizord</div>
-                <div class="game-description">Klassiska ordlekar med ett hemligt tema</div>
-                <div class="game-meta">
-                    <span class="meta-item">🎯 Klicka för att spela</span>
-                    <span class="difficulty easy">Lätt-Medel</span>
-                </div>
+        <!-- SPELKORT MED BILD OCH KNAPP INUTI RAMEN -->
+        <div class="game-card">
+            <div class="game-thumbnail">
+                <img src="Thumbnail.png" alt="QuizOrd teaser">
             </div>
-        </a>
+            <a href="game.html" class="cta-button">▶️ Starta spelet</a>
+        </div>
         
-        <button class="cta-button" onclick="window.location.href='game.html'">
-            ▶️ Starta spelet
-        </button>
-        
+        <!-- SIDFOT -->
         <div class="footer">
             <p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
+            <p class="footer-note">QuizOrd — Utvecklat med ❤️ för ordälskare</p>
         </div>
+        
     </div>
 </body>
 </html>
