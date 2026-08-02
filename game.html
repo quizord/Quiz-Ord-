@@ -45,7 +45,6 @@
         
         @media print { .banner-right { display: none !important; } }
         
-        /* === MOBILVÄNLIG LAYOUT === */
         @media (max-width: 500px) {
             .puzzle-banner { 
                 flex-direction: column; 
@@ -95,28 +94,28 @@
         .play-grid { display: flex; flex-wrap: wrap; gap: clamp(10px, 2vw, 18px); justify-content: center; align-items: flex-start; }
         .grid-half { flex: 0 1 auto; min-width: 170px; max-width: 55%; display: flex; justify-content: center; align-items: flex-start; }
         .clues-half { flex: 1 1 40%; min-width: 250px; max-width: 500px; }
-        .grid-wrapper { display: inline-block; padding: clamp(3px, 0.7vw, 5px); border: 3px solid #333333; border-radius: 10px; background: #0080ff; }
+        .grid-wrapper { display: inline-block; padding: clamp(3px, 0.7vw, 5px); border: 3px solid #333333; border-radius: 10px; background: #004000; }
         table.grid { border-collapse: collapse; margin: 0 auto; table-layout: fixed; }
         td { width: clamp(40px, min(5.090909090909091vw, 7vh), 68px); height: clamp(40px, min(5.090909090909091vw, 7vh), 68px); border: 1.5px solid #333333; text-align: center; font-size: clamp(17px, 2.8vw, 26px); font-weight: normal; vertical-align: middle; background: white; transition: outline 0.15s; position: relative; outline: 2px solid transparent; box-sizing: border-box; }
         td.empty { border: none; background: transparent; outline: none; }
         td.active { background: #ffffff; }
         td.given { background: #bbdefb; }
-        td.solution-given { background: #2c3e50; }
+        td.solution-given { background: #0000a0; }
         td.solution-given .given-letter { color: white; }
         td.dash-given { background: #e0e0e0; }
         td.given .given-letter { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: clamp(17px, 2.8vw, 26px); font-family: 'Patrick Hand', Verdana, sans-serif; overflow: hidden; }
-        td.active[data-solution="true"]:not(.given):not(.solution-given) { background: #fefbb6; }
+        td.active[data-solution="true"]:not(.given):not(.solution-given) { background: #91ff91; }
         td.active input { width: 100%; height: 100%; border: none; text-align: center; font-size: clamp(17px, 2.8vw, 26px); font-weight: normal; background: transparent; outline: none; text-transform: uppercase; padding: 0; margin: 0; cursor: pointer; font-family: 'Patrick Hand', Verdana, sans-serif; overflow: hidden; }
         td.active input:focus { background: #fcf8e3; }
         td.word-active { outline-color: #5dade2; }
         td.given.word-active { outline-color: transparent; }
         td.solution-correct { background: #fff3cd; border-color: #ffc107; color: #856404; animation: pulse 1.5s infinite; }
-        td.solution-given.solution-correct { animation: none; background: #2c3e50; border-color: #333; color: white; }
+        td.solution-given.solution-correct { animation: none; background: #0000a0; border-color: #333; color: white; }
         .clue-item { display: flex; align-items: center; gap: clamp(4px, 1vw, 7px); margin-bottom: clamp(3px, 0.7vw, 5px); padding: clamp(3px, 0.7vw, 6px) clamp(5px, 1vw, 9px); border-left: 4px solid #bdc3c7; background: #f8f9fa; border-radius: 6px; cursor: pointer; transition: 0.2s; font-family: 'Futura', 'Trebuchet MS', 'Arial', sans-serif; font-size: clamp(0.9rem, 1.4vw, 1.15rem); }
         .clue-item:hover { background: #ecf0f1; transform: translateX(4px); }
         .clue-item.active-clue { border-left-color: #3498db; background: #e8f4fd; }
-        .clue-item.correct-clue { border-left-color: #28a745; background: #cbe9d2; }
-        .clue-number { display: inline-flex; align-items: center; justify-content: center; width: clamp(20px, 2.3vw, 26px); height: clamp(20px, 2.3vw, 26px); background: #2c3e50; color: #ffffff; border-radius: 5px; font-size: clamp(0.8rem, 1.3vw, 1.1rem); }
+        .clue-item.correct-clue { border-left-color: #28a745; background: #d4edda; }
+        .clue-number { display: inline-flex; align-items: center; justify-content: center; width: clamp(20px, 2.3vw, 26px); height: clamp(20px, 2.3vw, 26px); background: #000000; color: #ffffff; border-radius: 5px; font-size: clamp(0.8rem, 1.3vw, 1.1rem); }
         .clue-text { font-weight: normal; flex: 1; color: #2c3e50; }
         .clue-sum-box { background: white; border: 1px solid #ddd; border-radius: 6px; width: clamp(50px, 6.5vw, 65px); padding: clamp(1px, 0.3vw, 3px) clamp(3px, 0.7vw, 4px); text-align: center; font-size: clamp(0.75rem, 1.3vw, 0.95rem); color: #2c3e50; white-space: nowrap; }
         .clue-sum-live { }
@@ -139,12 +138,11 @@
         .close { position: absolute; top: 5px; right: 12px; font-size: 1.3rem; font-weight: bold; cursor: pointer; color: #aaa; }
         .close:hover { color: #000; }
         
-        /* === FOKUSLÄGE === */
         #focus-mode { display: none; margin-top: clamp(8px, 1.5vw, 16px); }
         .focus-banner { background: #0000a0; color: #ffffff; padding: clamp(12px, 2.5vw, 22px) clamp(14px, 2.5vw, 28px); border-radius: 12px; text-align: center; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: bold; margin-bottom: clamp(12px, 2.5vw, 24px); letter-spacing: 0.02em; }
         .focus-row { display: flex; align-items: center; gap: clamp(8px, 1.5vw, 14px); margin-bottom: clamp(10px, 2vw, 16px); padding: clamp(10px, 1.5vw, 16px); background: #f8f9fa; border-radius: 10px; border-left: 5px solid #0000a0; flex-wrap: wrap; transition: all 0.3s; }
-        .focus-row.correct { border-left-color: #27ae60; background: #cbe9d2; }
-        .focus-solution { background: #fefbb6; }
+        .focus-row.correct { border-left-color: #27ae60; background: #d4edda; }
+        .focus-solution { background: #91ff91; }
         .focus-solution.correct { background: #fff3cd; border-left-color: #f39c12; }
         .focus-label { font-weight: 600; font-size: clamp(1.1rem, 2.5vw, 1.4rem); min-width: clamp(110px, 22vw, 200px); color: #2c3e50; cursor: pointer; }
         .focus-label:hover { color: #3498db; }
@@ -155,8 +153,8 @@
         .focus-solution .focus-inputs input { background: #fffde7; }
         .focus-solution.correct .focus-inputs input { background: #fff3cd; border-color: #f39c12; }
         .focus-given { display: inline-flex; align-items: center; justify-content: center; width: clamp(44px, 5.5vw, 60px); height: clamp(44px, 5.5vw, 60px); background: #bbdefb; border: 2.5px solid #333333; border-radius: 8px; font-size: clamp(22px, 3.5vw, 30px); font-weight: bold; font-family: 'Patrick Hand', Verdana, sans-serif; }
-        .focus-solution .focus-given { background: #2c3e50; color: white; }
-        .focus-arrow-cell { background: #2c3e50 !important; color: white !important; font-size: clamp(26px, 4.5vw, 34px) !important; }
+        .focus-solution .focus-given { background: #0000a0; color: white; }
+        .focus-arrow-cell { background: #0000a0 !important; color: white !important; font-size: clamp(26px, 4.5vw, 34px) !important; }
         .focus-check { font-size: clamp(26px, 4.5vw, 34px); color: #27ae60; font-weight: bold; animation: fadeInUp 0.4s ease-out; min-width: 34px; text-align: center; }
         .focus-sum { font-weight: bold; font-size: clamp(1rem, 1.8vw, 1.2rem); color: #2c3e50; white-space: nowrap; margin-left: auto; background: white; border: 1px solid #333333; border-radius: 6px; padding: clamp(3px, 0.5vw, 6px) clamp(6px, 1vw, 10px); }
         .focus-row.correct .focus-sum { color: #155724; border-color: #27ae60; background: #e8f8f5; }
@@ -171,7 +169,6 @@
             .top-bar button, .win-message, .win-image-wrapper { display: none; } 
             .banner-right { display: none !important; }
         }
-        /* iPad/tablet porträtt: stapla grid och clues */
         @media (max-width: 768px) { 
             .grid-half { max-width: 100%; flex: 1 1 100%; } 
             .clues-half { flex: 1 1 100%; max-width: 100%; } 
@@ -232,438 +229,451 @@
     
     <div id="focus-mode">
         <div class="focus-banner">"OFTA I DET BLÅ GER EN VINK DÅ OCH DÅ"</div>
-        <div class="focus-row focus-solution" data-word="↓KRABBA"><span class="focus-label">🎯 Lösning:</span><div class="focus-inputs"><span class="focus-given focus-arrow-cell">→</span><input type="text" maxlength="1" data-cell-id="1-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="2-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="3-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="4-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="5-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="6-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"></div><span class="focus-check" id="focus-check-↓KRABBA" style="display:none;">✅</span></div>
-        <div class="focus-row" data-word="1KLOR"><span class="focus-label">1. GER FÅGLAR FÄSTE</span><div class="focus-inputs"><span class="focus-given">1</span><input type="text" maxlength="1" data-cell-id="1-4" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="1-5" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="1-6" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="1-7" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"></div><span class="focus-check" id="focus-check-1KLOR" style="display:none;">✅</span><span class="focus-sum" id="focus-sum-1KLOR"><span class="focus-sum-live">0 / </span>10</span></div><div class="focus-row" data-word="2STRAND"><span class="focus-label">2. MELLAN KUST OCH LAND</span><div class="focus-inputs"><span class="focus-given">2</span><input type="text" maxlength="1" data-cell-id="3-1" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="3-2" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="3-3" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="3-4" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="3-5" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="3-6" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"></div><span class="focus-check" id="focus-check-2STRAND" style="display:none;">✅</span><span class="focus-sum" id="focus-sum-2STRAND"><span class="focus-sum-live">0 / </span>16</span></div><div class="focus-row" data-word="3SAND"><span class="focus-label">3. RINNER UTAN VATTEN</span><div class="focus-inputs"><span class="focus-given">3</span><input type="text" maxlength="1" data-cell-id="6-3" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="6-4" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="6-5" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"><input type="text" maxlength="1" data-cell-id="6-6" oninput="handleFocusInput(this)" onfocus="this.select()" onclick="this.select()"></div><span class="focus-check" id="focus-check-3SAND" style="display:none;">✅</span><span class="focus-sum" id="focus-sum-3SAND"><span class="focus-sum-live">0 / </span>9</span></div>
+        <div class="focus-row focus-solution" data-word="↓KRABBA"><span class="focus-label">🎯 Lösning:</span><div class="focus-inputs"><span class="focus-given focus-arrow-cell">→</span><input type="text" maxlength="1" data-cell-id="1-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="2-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="3-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="4-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="5-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="6-4" data-solution="true" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"></div><span class="focus-check" id="focus-check-↓KRABBA" style="display:none;">✅</span></div>
+        <div class="focus-row" data-word="1KLOR"><span class="focus-label">1. GER FÅGLAR FÄSTE</span><div class="focus-inputs"><span class="focus-given">1</span><input type="text" maxlength="1" data-cell-id="1-4" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="1-5" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="1-6" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="1-7" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"></div><span class="focus-check" id="focus-check-1KLOR" style="display:none;">✅</span><span class="focus-sum" id="focus-sum-1KLOR"><span class="focus-sum-live">0 / </span>10</span></div><div class="focus-row" data-word="2STRAND"><span class="focus-label">2. MELLAN KUST OCH LAND</span><div class="focus-inputs"><span class="focus-given">2</span><input type="text" maxlength="1" data-cell-id="3-1" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="3-2" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="3-3" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="3-4" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="3-5" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="3-6" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"></div><span class="focus-check" id="focus-check-2STRAND" style="display:none;">✅</span><span class="focus-sum" id="focus-sum-2STRAND"><span class="focus-sum-live">0 / </span>16</span></div><div class="focus-row" data-word="3SAND"><span class="focus-label">3. RINNER UTAN VATTEN</span><div class="focus-inputs"><span class="focus-given">3</span><input type="text" maxlength="1" data-cell-id="6-3" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="6-4" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="6-5" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"><input type="text" maxlength="1" data-cell-id="6-6" oninput="handleFocusInput(this)" onfocus="this.select();autoBlurIfFull(this)"></div><span class="focus-check" id="focus-check-3SAND" style="display:none;">✅</span><span class="focus-sum" id="focus-sum-3SAND"><span class="focus-sum-live">0 / </span>9</span></div>
         <div class="focus-values"><span class="focus-val-group"><strong>1</strong>=ABCDEF</span> <span class="focus-val-group"><strong>2</strong>=GHIJKL</span> <span class="focus-val-group"><strong>3</strong>=MNOPQR</span> <span class="focus-val-group"><strong>4</strong>=STUVWX</span> <span class="focus-val-group"><strong>5</strong>=YZÅÄÖ</span> </div>
     </div>
 </div>
 <script>
-    var puzzleText="OFTA I DET BLÅ GER EN VINK DÅ OCH DÅ"; var solutionWord="↓KRABBA";
-    var clueData=[{"id":1,"text":"GER FÅGLAR FÄSTE","answer":"1KLOR","sum":10},{"id":2,"text":"MELLAN KUST OCH LAND","answer":"2STRAND","sum":16},{"id":3,"text":"RINNER UTAN VATTEN","answer":"3SAND","sum":9}];
-    var grid=[[null,null,null,null,"↓",null,null,null,null,null,null,null,null,null,null],[null,null,null,"1","K","L","O","R",null,null,null,null,null,null,null],[null,null,null,null,"R",null,null,null,null,null,null,null,null,null,null],["2","S","T","R","A","N","D",null,null,null,null,null,null,null,null],[null,null,null,null,"B",null,null,null,null,null,null,null,null,null,null],[null,null,null,null,"B",null,null,null,null,null,null,null,null,null,null],[null,null,"3","S","A","N","D",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]; var gridSize=15; var playerInputs={}; var activeWord=null; var winShown=false;
-    var givenCells={"1-3":"1","3-0":"2","6-2":"3","0-4":"↓"};
-    for(var cellId in givenCells) playerInputs[cellId]=givenCells[cellId];
-    function getLetterValue(ch){var u=ch.toUpperCase();if("ABCDEF".indexOf(u)!==-1)return 1;if("GHIJKL".indexOf(u)!==-1)return 2;if("MNOPQR".indexOf(u)!==-1)return 3;if("STUVWX".indexOf(u)!==-1)return 4;if("YZÅÄÖ".indexOf(u)!==-1)return 5;return 0;}
-    function findWordPositions(g,w){var size=g.length;for(var y=0;y<size;y++){var row='',startX=-1;for(var x=0;x<size;x++){if(g[y][x]!==null){if(startX===-1)startX=x;row+=g[y][x];}else{if(row===w)return{y:y,x:startX,direction:'H'};row='';startX=-1;}}if(row===w)return{y:y,x:startX,direction:'H'};}for(var x=0;x<size;x++){var col='',startY=-1;for(var y=0;y<size;y++){if(g[y][x]!==null){if(startY===-1)startY=y;col+=g[y][x];}else{if(col===w)return{y:startY,x:x,direction:'V'};col='';startY=-1;}}if(col===w)return{y:startY,x:x,direction:'V'};}return null;}
-    var wordMap={};for(var i=0;i<clueData.length;i++){var pos=findWordPositions(grid,clueData[i].answer);if(pos)wordMap[clueData[i].answer]=pos;}
-    var solutionPos=findWordPositions(grid,solutionWord);if(solutionPos)wordMap[solutionWord]=solutionPos;
-    var wordDirections={};for(var word in wordMap)wordDirections[word]=wordMap[word].direction;
-    var wordOrder=clueData.map(function(c){return c.answer;}).concat([solutionWord]);
-    var allWordInputs={};var cellWords={};var cellCoords={};
-    function buildMaps(){cellWords={};cellCoords={};for(var word in wordMap){var pos=wordMap[word];if(pos.direction==='H'){for(var i=0;i<word.length;i++){var cellId=pos.y+'-'+(pos.x+i);if(!cellWords[cellId])cellWords[cellId]=[];if(cellWords[cellId].indexOf(word)===-1)cellWords[cellId].push(word);cellCoords[cellId]={x:pos.x+i,y:pos.y};}}else if(pos.direction==='V'){for(var i=0;i<word.length;i++){var cellId=(pos.y+i)+'-'+pos.x;if(!cellWords[cellId])cellWords[cellId]=[];if(cellWords[cellId].indexOf(word)===-1)cellWords[cellId].push(word);cellCoords[cellId]={x:pos.x,y:pos.y+i};}}}}
-    buildMaps();
+        var puzzleText="OFTA I DET BLÅ GER EN VINK DÅ OCH DÅ"; var solutionWord="↓KRABBA";
+        var clueData=[{"id":1,"text":"GER FÅGLAR FÄSTE","answer":"1KLOR","sum":10},{"id":2,"text":"MELLAN KUST OCH LAND","answer":"2STRAND","sum":16},{"id":3,"text":"RINNER UTAN VATTEN","answer":"3SAND","sum":9}];
+        var grid=[[null,null,null,null,"↓",null,null,null,null,null,null,null,null,null,null],[null,null,null,"1","K","L","O","R",null,null,null,null,null,null,null],[null,null,null,null,"R",null,null,null,null,null,null,null,null,null,null],["2","S","T","R","A","N","D",null,null,null,null,null,null,null,null],[null,null,null,null,"B",null,null,null,null,null,null,null,null,null,null],[null,null,null,null,"B",null,null,null,null,null,null,null,null,null,null],[null,null,"3","S","A","N","D",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]; var gridSize=15; var playerInputs={}; var activeWord=null; var winShown=false;
+        var givenCells={"1-3":"1","3-0":"2","6-2":"3","0-4":"↓"};
+        for(var cellId in givenCells) playerInputs[cellId]=givenCells[cellId];
+        function getLetterValue(ch){var u=ch.toUpperCase();if("ABCDEF".indexOf(u)!==-1)return 1;if("GHIJKL".indexOf(u)!==-1)return 2;if("MNOPQR".indexOf(u)!==-1)return 3;if("STUVWX".indexOf(u)!==-1)return 4;if("YZÅÄÖ".indexOf(u)!==-1)return 5;return 0;}
+        function findWordPositions(g,w){var size=g.length;for(var y=0;y<size;y++){var row='',startX=-1;for(var x=0;x<size;x++){if(g[y][x]!==null){if(startX===-1)startX=x;row+=g[y][x];}else{if(row===w)return{y:y,x:startX,direction:'H'};row='';startX=-1;}}if(row===w)return{y:y,x:startX,direction:'H'};}for(var x=0;x<size;x++){var col='',startY=-1;for(var y=0;y<size;y++){if(g[y][x]!==null){if(startY===-1)startY=y;col+=g[y][x];}else{if(col===w)return{y:startY,x:x,direction:'V'};col='';startY=-1;}}if(col===w)return{y:startY,x:x,direction:'V'};}return null;}
+        var wordMap={};for(var i=0;i<clueData.length;i++){var pos=findWordPositions(grid,clueData[i].answer);if(pos)wordMap[clueData[i].answer]=pos;}
+        var solutionPos=findWordPositions(grid,solutionWord);if(solutionPos)wordMap[solutionWord]=solutionPos;
+        var wordDirections={};for(var word in wordMap)wordDirections[word]=wordMap[word].direction;
+        var wordOrder=clueData.map(function(c){return c.answer;}).concat([solutionWord]);
+        var allWordInputs={};var cellWords={};var cellCoords={};
+        function buildMaps(){cellWords={};cellCoords={};for(var word in wordMap){var pos=wordMap[word];if(pos.direction==='H'){for(var i=0;i<word.length;i++){var cellId=pos.y+'-'+(pos.x+i);if(!cellWords[cellId])cellWords[cellId]=[];if(cellWords[cellId].indexOf(word)===-1)cellWords[cellId].push(word);cellCoords[cellId]={x:pos.x+i,y:pos.y};}}else if(pos.direction==='V'){for(var i=0;i<word.length;i++){var cellId=(pos.y+i)+'-'+pos.x;if(!cellWords[cellId])cellWords[cellId]=[];if(cellWords[cellId].indexOf(word)===-1)cellWords[cellId].push(word);cellCoords[cellId]={x:pos.x,y:pos.y+i};}}}}
+        buildMaps();
 
-    // Hjälpfunktion: kolla om ett ord är korrekt (matchar facit)
-    function isWordCorrect(word) {
-        if (!word || !allWordInputs[word]) return false;
-        var inputs = allWordInputs[word];
-        for (var i = 0; i < inputs.length; i++) {
-            if (!inputs[i].value || inputs[i].value.trim() === '') return false;
-            var cellId = inputs[i].dataset.cellId;
-            var parts = cellId.split('-');
-            if (playerInputs[cellId] !== grid[parseInt(parts[0])][parseInt(parts[1])]) return false;
+        function isWordCorrect(word) {
+            if (!word || !allWordInputs[word]) return false;
+            var inputs = allWordInputs[word];
+            for (var i = 0; i < inputs.length; i++) {
+                if (!inputs[i].value || inputs[i].value.trim() === '') return false;
+                var cellId = inputs[i].dataset.cellId;
+                var parts = cellId.split('-');
+                if (playerInputs[cellId] !== grid[parseInt(parts[0])][parseInt(parts[1])]) return false;
+            }
+            return true;
         }
-        return true;
-    }
 
-    function findWordForCell(cellId){var words=cellWords[cellId]||[];if(activeWord&&words.indexOf(activeWord)!==-1)return activeWord;return words.length>0?words[0]:null;}
-    function isWordFilled(word){if(!word||!allWordInputs[word])return false;var inputs=allWordInputs[word];for(var i=0;i<inputs.length;i++){if(!inputs[i].value||inputs[i].value.trim()==='')return false;}return true;}
-    
-    function handleInput(input){
-        var rawValue = input.value;
-        var cleanValue = rawValue.toUpperCase().replace(/[^A-ZÅÄÖ0-9\-]/g, '');
-        if (cleanValue.length > 1) cleanValue = cleanValue.charAt(cleanValue.length - 1);
-        input.value = cleanValue;
-        playerInputs[input.dataset.cellId] = cleanValue;
-        if(cleanValue && activeWord && allWordInputs[activeWord]){
-            var arr = allWordInputs[activeWord];
-            var idx = arr.indexOf(input);
-            if(idx !== -1 && idx < arr.length - 1){
-                arr[idx + 1].focus();
-                arr[idx + 1].select();
-            } else if(idx === arr.length - 1 && isWordCorrect(activeWord)){
+        function isWordFull(word) {
+            var inputs = allWordInputs[word];
+            if (!inputs) return false;
+            for (var i = 0; i < inputs.length; i++) {
+                if (!inputs[i].value || inputs[i].value.trim() === '') return false;
+            }
+            return true;
+        }
+
+        function findWordForCell(cellId){var words=cellWords[cellId]||[];if(activeWord&&words.indexOf(activeWord)!==-1)return activeWord;return words.length>0?words[0]:null;}
+        
+        function handleInput(input){
+            var rawValue = input.value;
+            var cleanValue = rawValue.toUpperCase().replace(/[^A-ZÅÄÖ0-9\-]/g, '');
+            if (cleanValue.length > 1) cleanValue = cleanValue.charAt(cleanValue.length - 1);
+            input.value = cleanValue;
+            playerInputs[input.dataset.cellId] = cleanValue;
+            if(cleanValue && activeWord && allWordInputs[activeWord]){
+                var arr = allWordInputs[activeWord];
+                var idx = arr.indexOf(input);
+                if(idx !== -1 && idx < arr.length - 1){
+                    arr[idx + 1].focus();
+                    arr[idx + 1].select();
+                }
+            }
+            // Stäng tangentbordet så fort ordet är fullt (oavsett om det är rätt)
+            var wordForCell = findWordForCell(input.dataset.cellId);
+            if (wordForCell && isWordFull(wordForCell)) {
                 input.blur();
             }
+            syncFocusMode();
+            updateAllFilledStatus();
+            renderGame();
         }
-        syncFocusMode();
-        updateAllFilledStatus();
-        renderGame();
-    }
-    
-    function handleFocusInput(input){
-        var rawValue = input.value;
-        var cleanValue = rawValue.toUpperCase().replace(/[^A-ZÅÄÖ0-9\-]/g, '');
-        if (cleanValue.length > 1) cleanValue = cleanValue.charAt(cleanValue.length - 1);
-        input.value = cleanValue;
         
-        var cellId = input.dataset.cellId;
-        playerInputs[cellId] = cleanValue;
-        
-        var parentRow = input.closest('.focus-row');
-        var wordForRow = parentRow ? parentRow.dataset.word : null;
-        
-        var wordsSharingCell = cellWords[cellId] || [];
-        wordsSharingCell.forEach(function(word) {
-            var focusRow = document.querySelector('#focus-mode .focus-row[data-word="' + word + '"]');
-            if (focusRow) {
-                var focusInputs = focusRow.querySelectorAll('input');
-                focusInputs.forEach(function(fi) {
-                    if (fi.dataset.cellId === cellId) fi.value = cleanValue;
-                });
-            }
-            if (word !== solutionWord && wordsSharingCell.indexOf(solutionWord) !== -1) {
-                var solFocusRow = document.querySelector('#focus-mode .focus-row[data-word="' + solutionWord + '"]');
-                if (solFocusRow) {
-                    var solInputs = solFocusRow.querySelectorAll('input');
-                    solInputs.forEach(function(si) {
-                        if (si.dataset.cellId === cellId) si.value = cleanValue;
+        function handleFocusInput(input){
+            var rawValue = input.value;
+            var cleanValue = rawValue.toUpperCase().replace(/[^A-ZÅÄÖ0-9\-]/g, '');
+            if (cleanValue.length > 1) cleanValue = cleanValue.charAt(cleanValue.length - 1);
+            input.value = cleanValue;
+            
+            var cellId = input.dataset.cellId;
+            playerInputs[cellId] = cleanValue;
+            
+            var parentRow = input.closest('.focus-row');
+            var wordForRow = parentRow ? parentRow.dataset.word : null;
+            
+            var wordsSharingCell = cellWords[cellId] || [];
+            wordsSharingCell.forEach(function(word) {
+                var focusRow = document.querySelector('#focus-mode .focus-row[data-word="' + word + '"]');
+                if (focusRow) {
+                    var focusInputs = focusRow.querySelectorAll('input');
+                    focusInputs.forEach(function(fi) {
+                        if (fi.dataset.cellId === cellId) fi.value = cleanValue;
                     });
                 }
+                if (word !== solutionWord && wordsSharingCell.indexOf(solutionWord) !== -1) {
+                    var solFocusRow = document.querySelector('#focus-mode .focus-row[data-word="' + solutionWord + '"]');
+                    if (solFocusRow) {
+                        var solInputs = solFocusRow.querySelectorAll('input');
+                        solInputs.forEach(function(si) {
+                            if (si.dataset.cellId === cellId) si.value = cleanValue;
+                        });
+                    }
+                }
+            });
+            
+            if (parentRow && cleanValue) {
+                var rowInputs = parentRow.querySelectorAll('input');
+                var currentIdx = Array.from(rowInputs).indexOf(input);
+                if (currentIdx !== -1 && currentIdx < rowInputs.length - 1) {
+                    rowInputs[currentIdx + 1].focus();
+                    rowInputs[currentIdx + 1].select();
+                }
             }
-        });
-        
-        if (parentRow && cleanValue) {
-            var rowInputs = parentRow.querySelectorAll('input');
-            var currentIdx = Array.from(rowInputs).indexOf(input);
-            if (currentIdx !== -1 && currentIdx < rowInputs.length - 1) {
-                rowInputs[currentIdx + 1].focus();
-                rowInputs[currentIdx + 1].select();
-            } else {
+            
+            // Stäng tangentbordet så fort ordet är fullt (rätt eller fel)
+            if (wordForRow && isWordFull(wordForRow)) {
+                if (document.activeElement && document.activeElement.tagName === 'INPUT') {
+                    document.activeElement.blur();
+                }
+            }
+            
+            syncCrosswordGrid();
+            updateAllFilledStatus();
+            updateFocusChecks();
+            updateFocusSums();
+            renderGame();
+        }
+
+        function autoBlurIfFull(input) {
+            var row = input.closest('.focus-row');
+            if (!row) return;
+            var word = row.dataset.word;
+            if (word && isWordFull(word)) {
                 input.blur();
             }
         }
         
-        // NYTT: Stäng tangentbordet ENDAST om ordet är HELT KORREKT
-        if (wordForRow && isWordCorrect(wordForRow)) {
-            if (document.activeElement && document.activeElement.tagName === 'INPUT') {
-                document.activeElement.blur();
-            }
+        function syncCrosswordGrid() {
+            var gridInputs = document.querySelectorAll('#crosswordGrid input');
+            gridInputs.forEach(function(inp) {
+                inp.value = playerInputs[inp.dataset.cellId] || '';
+            });
         }
         
-        syncCrosswordGrid();
-        updateAllFilledStatus();
-        updateFocusChecks();
-        updateFocusSums();
-        renderGame();
-    }
-    
-    function syncCrosswordGrid() {
-        var gridInputs = document.querySelectorAll('#crosswordGrid input');
-        gridInputs.forEach(function(inp) {
-            inp.value = playerInputs[inp.dataset.cellId] || '';
-        });
-    }
-    
-    function syncFocusMode() {
-        var focusInputs = document.querySelectorAll('#focus-mode input');
-        focusInputs.forEach(function(inp) {
-            inp.value = playerInputs[inp.dataset.cellId] || '';
-        });
-        updateFocusChecks();
-        updateFocusSums();
-    }
-    
-    function updateFocusChecks() {
-        var allWordsToCheck = clueData.map(function(c){ return c.answer; }).concat([solutionWord]);
-        allWordsToCheck.forEach(function(word) {
-            var checkSpan = document.getElementById('focus-check-' + word);
-            var focusRow = document.querySelector('#focus-mode .focus-row[data-word="' + word + '"]');
-            if (!checkSpan || !focusRow) return;
-            
-            if (isWordCorrect(word)) {
-                checkSpan.style.display = 'inline';
-                focusRow.classList.add('correct');
-            } else {
-                checkSpan.style.display = 'none';
-                focusRow.classList.remove('correct');
-            }
-        });
-    }
-    
-    function updateFocusSums() {
-        clueData.forEach(function(clue) {
-            var sumSpan = document.getElementById('focus-sum-' + clue.answer);
-            if (!sumSpan) return;
-            var liveSpan = sumSpan.querySelector('.focus-sum-live');
-            var currentSum = 0;
-            var pos = wordMap[clue.answer];
-            if (!pos) return;
-            if (pos.direction === 'H') {
-                for (var i = 0; i < clue.answer.length; i++) {
-                    var cellId = pos.y + '-' + (pos.x + i);
-                    var val = (playerInputs[cellId] || '').toUpperCase();
-                    if (val) currentSum += getLetterValue(val);
-                }
-            } else {
-                for (var i = 0; i < clue.answer.length; i++) {
-                    var cellId = (pos.y + i) + '-' + pos.x;
-                    var val = (playerInputs[cellId] || '').toUpperCase();
-                    if (val) currentSum += getLetterValue(val);
-                }
-            }
-            if (liveSpan) {
-                liveSpan.textContent = currentSum + ' / ';
-            }
-        });
-    }
-    
-    function toggleFocusMode() {
-        var normalBanner = document.querySelector('#normal-view');
-        var normalContent = document.getElementById('normal-view-content');
-        var focusMode = document.getElementById('focus-mode');
-        var btn = document.getElementById('focusModeBtn');
-        if (focusMode.style.display === 'none' || focusMode.style.display === '') {
-            if (normalBanner) normalBanner.style.display = 'none';
-            if (normalContent) normalContent.style.display = 'none';
-            focusMode.style.display = 'block';
-            btn.innerHTML = '📋 Vanlig vy';
-            btn.style.background = '#27ae60';
-            btn.style.color = '#fff';
-            syncFocusMode();
-        } else {
-            if (normalBanner) normalBanner.style.display = 'block';
-            if (normalContent) normalContent.style.display = 'block';
-            focusMode.style.display = 'none';
-            btn.innerHTML = '🔍 Fokusläge';
-            btn.style.background = '#ecf0f1';
-            btn.style.color = '#2c3e50';
+        function syncFocusMode() {
+            var focusInputs = document.querySelectorAll('#focus-mode input');
+            focusInputs.forEach(function(inp) {
+                inp.value = playerInputs[inp.dataset.cellId] || '';
+            });
+            updateFocusChecks();
+            updateFocusSums();
         }
-    }
-    
-    function checkAutoReturn() {
-        if (isWordCorrect(solutionWord)) {
+        
+        function updateFocusChecks() {
+            var allWordsToCheck = clueData.map(function(c){ return c.answer; }).concat([solutionWord]);
+            allWordsToCheck.forEach(function(word) {
+                var checkSpan = document.getElementById('focus-check-' + word);
+                var focusRow = document.querySelector('#focus-mode .focus-row[data-word="' + word + '"]');
+                if (!checkSpan || !focusRow) return;
+                
+                if (isWordCorrect(word)) {
+                    checkSpan.style.display = 'inline';
+                    focusRow.classList.add('correct');
+                } else {
+                    checkSpan.style.display = 'none';
+                    focusRow.classList.remove('correct');
+                }
+            });
+        }
+        
+        function updateFocusSums() {
+            clueData.forEach(function(clue) {
+                var sumSpan = document.getElementById('focus-sum-' + clue.answer);
+                if (!sumSpan) return;
+                var liveSpan = sumSpan.querySelector('.focus-sum-live');
+                var currentSum = 0;
+                var pos = wordMap[clue.answer];
+                if (!pos) return;
+                if (pos.direction === 'H') {
+                    for (var i = 0; i < clue.answer.length; i++) {
+                        var cellId = pos.y + '-' + (pos.x + i);
+                        var val = (playerInputs[cellId] || '').toUpperCase();
+                        if (val) currentSum += getLetterValue(val);
+                    }
+                } else {
+                    for (var i = 0; i < clue.answer.length; i++) {
+                        var cellId = (pos.y + i) + '-' + pos.x;
+                        var val = (playerInputs[cellId] || '').toUpperCase();
+                        if (val) currentSum += getLetterValue(val);
+                    }
+                }
+                if (liveSpan) {
+                    liveSpan.textContent = currentSum + ' / ';
+                }
+            });
+        }
+        
+        function toggleFocusMode() {
+            var normalBanner = document.querySelector('#normal-view');
+            var normalContent = document.getElementById('normal-view-content');
             var focusMode = document.getElementById('focus-mode');
-            if (focusMode.style.display === 'block') {
-                setTimeout(function() {
-                    toggleFocusMode();
-                }, 800);
+            var btn = document.getElementById('focusModeBtn');
+            if (focusMode.style.display === 'none' || focusMode.style.display === '') {
+                if (normalBanner) normalBanner.style.display = 'none';
+                if (normalContent) normalContent.style.display = 'none';
+                focusMode.style.display = 'block';
+                btn.innerHTML = '📋 Vanlig vy';
+                btn.style.background = '#27ae60';
+                btn.style.color = '#fff';
+                syncFocusMode();
+            } else {
+                if (normalBanner) normalBanner.style.display = 'block';
+                if (normalContent) normalContent.style.display = 'block';
+                focusMode.style.display = 'none';
+                btn.innerHTML = '🔍 Fokusläge';
+                btn.style.background = '#ecf0f1';
+                btn.style.color = '#2c3e50';
             }
         }
-    }
-
-    function renderGame(){var allInputs=document.querySelectorAll('#crosswordGrid input');for(var i=0;i<allInputs.length;i++){var inp=allInputs[i];inp.value=playerInputs[inp.dataset.cellId]||'';}for(var j=0;j<clueData.length;j++){var clue=clueData[j];var liveSpan=document.getElementById('sum-live-'+clue.answer);if(liveSpan){var currentSum=0;var inputs=allWordInputs[clue.answer]||[];for(var k=0;k<inputs.length;k++){var val=inputs[k].value.trim().toUpperCase();if(val)currentSum+=getLetterValue(val);}liveSpan.textContent=currentSum+' / '+clue.sum;}}}
-    
-    (function init(){
-        var inputs=document.querySelectorAll('#crosswordGrid input');
-        for(var i=0;i<inputs.length;i++){
-            var inp=inputs[i];
-            var words=cellWords[inp.dataset.cellId]||[];
-            for(var j=0;j<words.length;j++){
-                var word=words[j];
-                if(!allWordInputs[word])allWordInputs[word]=[];
-                allWordInputs[word].push(inp);
-            }
-        }
-        for(var word in allWordInputs){
-            var dir=wordDirections[word];
-            allWordInputs[word].sort(function(a,b){
-                var ay=parseInt(a.dataset.cellId.split('-')[0]),ax=parseInt(a.dataset.cellId.split('-')[1]),
-                    by=parseInt(b.dataset.cellId.split('-')[0]),bx=parseInt(b.dataset.cellId.split('-')[1]);
-                return dir==='H'?ax-bx:ay-by;
-            });
-        }
         
-        var banner=document.getElementById('puzzleBanner');
-        if(banner){
-            banner.onmouseenter=function(){setOutlineWord(solutionWord,true);};
-            banner.onmouseleave=function(){setOutlineWord(solutionWord,false);};
-            banner.onclick=function(e){if(e.target===document.getElementById('helpBtn')||e.target.closest('#helpBtn'))return;activateClue(solutionWord);};
-        }
-        
-        var clueItems=document.querySelectorAll('.clue-item');
-        for(var i=0;i<clueItems.length;i++){
-            (function(item){
-                var word=item.dataset.word;
-                item.onmouseenter=function(){setOutlineWord(word,true);};
-                item.onmouseleave=function(){setOutlineWord(word,false);};
-                item.onclick=function(){activateClue(word);};
-            })(clueItems[i]);
-        }
-        
-        var focusLabels=document.querySelectorAll('#focus-mode .focus-label');
-        focusLabels.forEach(function(label){
-            label.addEventListener('click', function(){
-                var row = this.closest('.focus-row');
-                if (row) {
-                    var firstInput = row.querySelector('input');
-                    if (firstInput) { firstInput.focus(); firstInput.select(); }
+        function checkAutoReturn() {
+            if (isWordCorrect(solutionWord)) {
+                var focusMode = document.getElementById('focus-mode');
+                if (focusMode.style.display === 'block') {
+                    setTimeout(function() {
+                        toggleFocusMode();
+                    }, 800);
                 }
-            });
-        });
-        
-        for(var i=0;i<inputs.length;i++){
-            (function(input){
-                input.addEventListener('focus', function(){
-                    this.select();
-                    var words = cellWords[this.dataset.cellId] || [];
-                    if(!activeWord || words.indexOf(activeWord) === -1){
-                        var preferred = words.find(function(w){ return w !== solutionWord; }) || solutionWord;
-                        setActiveWord(preferred);
-                    }
-                });
-                input.addEventListener('click', function(){
-                    this.select();
-                    var words = cellWords[this.dataset.cellId] || [];
-                    if(!activeWord || words.indexOf(activeWord) === -1){
-                        var preferred = words.find(function(w){ return w !== solutionWord; }) || solutionWord;
-                        setActiveWord(preferred);
-                    }
-                });
-                input.addEventListener('keydown', function(e){
-                    var arrowKeys = ['ArrowRight','ArrowLeft','ArrowUp','ArrowDown'];
-                    if(arrowKeys.indexOf(e.key) !== -1){
-                        e.preventDefault();
-                        var coords = cellCoords[this.dataset.cellId];
-                        if(!coords) return;
-                        var newX = coords.x, newY = coords.y;
-                        var stepX = e.key === 'ArrowRight' ? 1 : (e.key === 'ArrowLeft' ? -1 : 0);
-                        var stepY = e.key === 'ArrowDown' ? 1 : (e.key === 'ArrowUp' ? -1 : 0);
-                        newX += stepX; newY += stepY;
-                        var found = false;
-                        while(newY >= 0 && newY < gridSize && newX >= 0 && newX < gridSize){
-                            var newCellId = newY + '-' + newX;
-                            var newInput = document.querySelector('#crosswordGrid input[data-cell-id="' + newCellId + '"]');
-                            if(newInput){
-                                newInput.focus();
-                                newInput.select();
-                                var words = cellWords[newCellId] || [];
-                                if(!activeWord || words.indexOf(activeWord) === -1){
-                                    var preferred = words.find(function(w){ return w !== solutionWord; }) || solutionWord;
-                                    setActiveWord(preferred);
-                                }
-                                found = true;
-                                break;
-                            }
-                            var td = document.querySelector('#crosswordGrid td.active[data-cell-id="' + newCellId + '"]');
-                            if(!td) break;
-                            newX += stepX; newY += stepY;
-                        }
-                        if(!found) this.focus();
-                        return;
-                    }
-                    if(e.key === 'Backspace'){
-                        if(this.value === '' && activeWord && allWordInputs[activeWord]){
-                            e.preventDefault();
-                            var arr = allWordInputs[activeWord];
-                            var idx = arr.indexOf(this);
-                            if(idx > 0){
-                                var prevInput = arr[idx - 1];
-                                prevInput.value = '';
-                                playerInputs[prevInput.dataset.cellId] = '';
-                                prevInput.focus();
-                                prevInput.select();
-                                syncFocusMode();
-                                updateAllFilledStatus();
-                                renderGame();
-                            }
-                        }
-                        return;
-                    }
-                    if(e.key === 'Enter'){ e.preventDefault(); this.blur(); return; }
-                    if(e.key === 'Tab'){
-                        e.preventDefault();
-                        if(activeWord && wordOrder.indexOf(activeWord) !== -1){
-                            var nextIdx = (wordOrder.indexOf(activeWord) + 1) % wordOrder.length;
-                            var nextWord = wordOrder[nextIdx];
-                            if(allWordInputs[nextWord] && allWordInputs[nextWord].length > 0){
-                                setActiveWord(nextWord);
-                                allWordInputs[nextWord][0].focus();
-                                allWordInputs[nextWord][0].select();
-                            }
-                        }
-                        return;
-                    }
-                    if(e.key.length === 1 && this.value.length > 0){
-                        this.value = '';
-                        playerInputs[this.dataset.cellId] = '';
-                    }
-                });
-            })(inputs[i]);
-        }
-        
-        updateAllFilledStatus();
-        renderGame();
-        
-        var modal = document.getElementById('helpModal');
-        document.getElementById('helpBtn').onclick = function(){ modal.style.display = 'block'; };
-        document.getElementById('closeModal').onclick = function(){ modal.style.display = 'none'; };
-        window.onclick = function(event){ if(event.target == modal) modal.style.display = 'none'; };
-        document.addEventListener('keydown', function(e){ if(e.key === 'Escape') modal.style.display = 'none'; });
-    })();
-    
-    function setActiveWord(word){
-        if(activeWord){ setOutlineWord(activeWord, false); var items = document.querySelectorAll('.clue-item'); for(var i = 0; i < items.length; i++) items[i].classList.remove('active-clue'); }
-        activeWord = word;
-        if(activeWord){ setOutlineWord(activeWord, true); var clueItem = document.querySelector('.clue-item[data-word="'+activeWord+'"]'); if(clueItem) clueItem.classList.add('active-clue'); }
-    }
-    function setOutlineWord(word, on){
-        for(var cellId in cellWords){
-            if(cellWords[cellId].indexOf(word) !== -1){
-                var td = document.querySelector('#crosswordGrid td.active[data-cell-id="'+cellId+'"]');
-                if(td){ if(td.classList.contains('given')) continue; if(on) td.classList.add('word-active'); else td.classList.remove('word-active'); }
             }
         }
-    }
-    function activateClue(word){
-        if(!allWordInputs[word]) return;
-        setActiveWord(word);
-        allWordInputs[word][0].focus();
-        allWordInputs[word][0].select();
-    }
-    function updateAllFilledStatus(){
-        var correctWords = {};
-        for(var word in wordMap){
-            correctWords[word] = isWordCorrect(word);
+
+        function renderGame(){var allInputs=document.querySelectorAll('#crosswordGrid input');for(var i=0;i<allInputs.length;i++){var inp=allInputs[i];inp.value=playerInputs[inp.dataset.cellId]||'';}for(var j=0;j<clueData.length;j++){var clue=clueData[j];var liveSpan=document.getElementById('sum-live-'+clue.answer);if(liveSpan){var currentSum=0;var inputs=allWordInputs[clue.answer]||[];for(var k=0;k<inputs.length;k++){var val=inputs[k].value.trim().toUpperCase();if(val)currentSum+=getLetterValue(val);}liveSpan.textContent=currentSum+' / '+clue.sum;}}}
+        
+        (function init(){
+            var inputs=document.querySelectorAll('#crosswordGrid input');
+            for(var i=0;i<inputs.length;i++){
+                var inp=inputs[i];
+                var words=cellWords[inp.dataset.cellId]||[];
+                for(var j=0;j<words.length;j++){
+                    var word=words[j];
+                    if(!allWordInputs[word])allWordInputs[word]=[];
+                    allWordInputs[word].push(inp);
+                }
+            }
+            for(var word in allWordInputs){
+                var dir=wordDirections[word];
+                allWordInputs[word].sort(function(a,b){
+                    var ay=parseInt(a.dataset.cellId.split('-')[0]),ax=parseInt(a.dataset.cellId.split('-')[1]),
+                        by=parseInt(b.dataset.cellId.split('-')[0]),bx=parseInt(b.dataset.cellId.split('-')[1]);
+                    return dir==='H'?ax-bx:ay-by;
+                });
+            }
+            
+            var banner=document.getElementById('puzzleBanner');
+            if(banner){
+                banner.onmouseenter=function(){setOutlineWord(solutionWord,true);};
+                banner.onmouseleave=function(){setOutlineWord(solutionWord,false);};
+                banner.onclick=function(e){if(e.target===document.getElementById('helpBtn')||e.target.closest('#helpBtn'))return;activateClue(solutionWord);};
+            }
+            
+            var clueItems=document.querySelectorAll('.clue-item');
+            for(var i=0;i<clueItems.length;i++){
+                (function(item){
+                    var word=item.dataset.word;
+                    item.onmouseenter=function(){setOutlineWord(word,true);};
+                    item.onmouseleave=function(){setOutlineWord(word,false);};
+                    item.onclick=function(){activateClue(word);};
+                })(clueItems[i]);
+            }
+            
+            var focusLabels=document.querySelectorAll('#focus-mode .focus-label');
+            focusLabels.forEach(function(label){
+                label.addEventListener('click', function(){
+                    var row = this.closest('.focus-row');
+                    if (row) {
+                        var firstInput = row.querySelector('input');
+                        if (firstInput) { firstInput.focus(); firstInput.select(); }
+                    }
+                });
+            });
+            
+            for(var i=0;i<inputs.length;i++){
+                (function(input){
+                    input.addEventListener('focus', function(){
+                        this.select();
+                        var words = cellWords[this.dataset.cellId] || [];
+                        if(!activeWord || words.indexOf(activeWord) === -1){
+                            var preferred = words.find(function(w){ return w !== solutionWord; }) || solutionWord;
+                            setActiveWord(preferred);
+                        }
+                    });
+                    input.addEventListener('click', function(){
+                        this.select();
+                        var words = cellWords[this.dataset.cellId] || [];
+                        if(!activeWord || words.indexOf(activeWord) === -1){
+                            var preferred = words.find(function(w){ return w !== solutionWord; }) || solutionWord;
+                            setActiveWord(preferred);
+                        }
+                    });
+                    input.addEventListener('keydown', function(e){
+                        var arrowKeys = ['ArrowRight','ArrowLeft','ArrowUp','ArrowDown'];
+                        if(arrowKeys.indexOf(e.key) !== -1){
+                            e.preventDefault();
+                            var coords = cellCoords[this.dataset.cellId];
+                            if(!coords) return;
+                            var newX = coords.x, newY = coords.y;
+                            var stepX = e.key === 'ArrowRight' ? 1 : (e.key === 'ArrowLeft' ? -1 : 0);
+                            var stepY = e.key === 'ArrowDown' ? 1 : (e.key === 'ArrowUp' ? -1 : 0);
+                            newX += stepX; newY += stepY;
+                            var found = false;
+                            while(newY >= 0 && newY < gridSize && newX >= 0 && newX < gridSize){
+                                var newCellId = newY + '-' + newX;
+                                var newInput = document.querySelector('#crosswordGrid input[data-cell-id="' + newCellId + '"]');
+                                if(newInput){
+                                    newInput.focus();
+                                    newInput.select();
+                                    var words = cellWords[newCellId] || [];
+                                    if(!activeWord || words.indexOf(activeWord) === -1){
+                                        var preferred = words.find(function(w){ return w !== solutionWord; }) || solutionWord;
+                                        setActiveWord(preferred);
+                                    }
+                                    found = true;
+                                    break;
+                                }
+                                var td = document.querySelector('#crosswordGrid td.active[data-cell-id="' + newCellId + '"]');
+                                if(!td) break;
+                                newX += stepX; newY += stepY;
+                            }
+                            if(!found) this.focus();
+                            return;
+                        }
+                        if(e.key === 'Backspace'){
+                            if(this.value === '' && activeWord && allWordInputs[activeWord]){
+                                e.preventDefault();
+                                var arr = allWordInputs[activeWord];
+                                var idx = arr.indexOf(this);
+                                if(idx > 0){
+                                    var prevInput = arr[idx - 1];
+                                    prevInput.value = '';
+                                    playerInputs[prevInput.dataset.cellId] = '';
+                                    prevInput.focus();
+                                    prevInput.select();
+                                    syncFocusMode();
+                                    updateAllFilledStatus();
+                                    renderGame();
+                                }
+                            }
+                            return;
+                        }
+                        if(e.key === 'Enter'){ e.preventDefault(); this.blur(); return; }
+                        if(e.key === 'Tab'){
+                            e.preventDefault();
+                            if(activeWord && wordOrder.indexOf(activeWord) !== -1){
+                                var nextIdx = (wordOrder.indexOf(activeWord) + 1) % wordOrder.length;
+                                var nextWord = wordOrder[nextIdx];
+                                if(allWordInputs[nextWord] && allWordInputs[nextWord].length > 0){
+                                    setActiveWord(nextWord);
+                                    allWordInputs[nextWord][0].focus();
+                                    allWordInputs[nextWord][0].select();
+                                }
+                            }
+                            return;
+                        }
+                        if(e.key.length === 1 && this.value.length > 0){
+                            this.value = '';
+                            playerInputs[this.dataset.cellId] = '';
+                        }
+                    });
+                })(inputs[i]);
+            }
+            
+            updateAllFilledStatus();
+            renderGame();
+            
+            var modal = document.getElementById('helpModal');
+            document.getElementById('helpBtn').onclick = function(){ modal.style.display = 'block'; };
+            document.getElementById('closeModal').onclick = function(){ modal.style.display = 'none'; };
+            window.onclick = function(event){ if(event.target == modal) modal.style.display = 'none'; };
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape') modal.style.display = 'none'; });
+        })();
+        
+        function setActiveWord(word){
+            if(activeWord){ setOutlineWord(activeWord, false); var items = document.querySelectorAll('.clue-item'); for(var i = 0; i < items.length; i++) items[i].classList.remove('active-clue'); }
+            activeWord = word;
+            if(activeWord){ setOutlineWord(activeWord, true); var clueItem = document.querySelector('.clue-item[data-word="'+activeWord+'"]'); if(clueItem) clueItem.classList.add('active-clue'); }
         }
-        var clueItems = document.querySelectorAll('.clue-item');
-        for(var i = 0; i < clueItems.length; i++){
-            var word = clueItems[i].dataset.word;
-            if(correctWords[word]) clueItems[i].classList.add('correct-clue');
-            else clueItems[i].classList.remove('correct-clue');
+        function setOutlineWord(word, on){
+            for(var cellId in cellWords){
+                if(cellWords[cellId].indexOf(word) !== -1){
+                    var td = document.querySelector('#crosswordGrid td.active[data-cell-id="'+cellId+'"]');
+                    if(td){ if(td.classList.contains('given')) continue; if(on) td.classList.add('word-active'); else td.classList.remove('word-active'); }
+                }
+            }
         }
-        var tds = document.querySelectorAll('#crosswordGrid td.active');
-        for(var i = 0; i < tds.length; i++){
-            var td = tds[i];
-            if(!td.dataset.cellId) continue;
-            var wordsForCell = cellWords[td.dataset.cellId] || [];
-            var isSolutionCell = wordsForCell.indexOf(solutionWord) !== -1;
-            td.classList.remove('solution-correct');
-            if(isSolutionCell && correctWords[solutionWord] && !td.classList.contains('solution-given')){ td.classList.add('solution-correct'); }
+        function activateClue(word){
+            if(!allWordInputs[word]) return;
+            setActiveWord(word);
+            allWordInputs[word][0].focus();
+            allWordInputs[word][0].select();
         }
-        var winDiv = document.getElementById('winMessage');
-        var winImg = document.getElementById('winImageWrapper');
-        if(correctWords[solutionWord] && !winShown){
-            winDiv.style.display = 'block'; if(winImg) winImg.classList.add('visible'); winShown = true;
+        var originalUpdateAllFilledStatus = function(){}; // placeholder, will be overwritten
+        updateAllFilledStatus = function(){
+            var correctWords = {};
+            for(var word in wordMap){
+                correctWords[word] = isWordCorrect(word);
+            }
+            var clueItems = document.querySelectorAll('.clue-item');
+            for(var i = 0; i < clueItems.length; i++){
+                var word = clueItems[i].dataset.word;
+                if(correctWords[word]) clueItems[i].classList.add('correct-clue');
+                else clueItems[i].classList.remove('correct-clue');
+            }
+            var tds = document.querySelectorAll('#crosswordGrid td.active');
+            for(var i = 0; i < tds.length; i++){
+                var td = tds[i];
+                if(!td.dataset.cellId) continue;
+                var wordsForCell = cellWords[td.dataset.cellId] || [];
+                var isSolutionCell = wordsForCell.indexOf(solutionWord) !== -1;
+                td.classList.remove('solution-correct');
+                if(isSolutionCell && correctWords[solutionWord] && !td.classList.contains('solution-given')){ td.classList.add('solution-correct'); }
+            }
+            var winDiv = document.getElementById('winMessage');
+            var winImg = document.getElementById('winImageWrapper');
+            if(correctWords[solutionWord] && !winShown){
+                winDiv.style.display = 'block'; if(winImg) winImg.classList.add('visible'); winShown = true;
+                checkAutoReturn();
+            } else if(!correctWords[solutionWord]){
+                winDiv.style.display = 'none'; if(winImg) winImg.classList.remove('visible'); winShown = false;
+            }
+            updateFocusChecks();
             checkAutoReturn();
-        } else if(!correctWords[solutionWord]){
-            winDiv.style.display = 'none'; if(winImg) winImg.classList.remove('visible'); winShown = false;
-        }
-    }
-    
-    var originalUpdateAllFilledStatus = updateAllFilledStatus;
-    updateAllFilledStatus = function() {
-        originalUpdateAllFilledStatus();
-        updateFocusChecks();
-        checkAutoReturn();
-    };
-    
-    window.resetGame = function(){
-        playerInputs = {};
-        for(var cellId in givenCells) playerInputs[cellId] = givenCells[cellId];
-        activeWord = null; winShown = false;
-        document.getElementById('winMessage').style.display = 'none';
-        var w = document.getElementById('winImageWrapper'); if(w) w.classList.remove('visible');
-        renderGame(); syncFocusMode();
-        var tds = document.querySelectorAll('#crosswordGrid td.active');
-        for(var i = 0; i < tds.length; i++) tds[i].classList.remove('solution-correct', 'word-active');
-        var items = document.querySelectorAll('.clue-item');
-        for(var i = 0; i < items.length; i++) items[i].classList.remove('correct-clue', 'active-clue');
-        var focusRows = document.querySelectorAll('#focus-mode .focus-row');
-        for(var i = 0; i < focusRows.length; i++) focusRows[i].classList.remove('correct');
-        var checks = document.querySelectorAll('#focus-mode .focus-check');
-        for(var i = 0; i < checks.length; i++) checks[i].style.display = 'none';
-    };
-    window.toggleHighContrast = function(){ document.body.classList.toggle('high-contrast'); };
-</script>
+        };
+        
+        window.resetGame = function(){
+            playerInputs = {};
+            for(var cellId in givenCells) playerInputs[cellId] = givenCells[cellId];
+            activeWord = null; winShown = false;
+            document.getElementById('winMessage').style.display = 'none';
+            var w = document.getElementById('winImageWrapper'); if(w) w.classList.remove('visible');
+            renderGame(); syncFocusMode();
+            var tds = document.querySelectorAll('#crosswordGrid td.active');
+            for(var i = 0; i < tds.length; i++) tds[i].classList.remove('solution-correct', 'word-active');
+            var items = document.querySelectorAll('.clue-item');
+            for(var i = 0; i < items.length; i++) items[i].classList.remove('correct-clue', 'active-clue');
+            var focusRows = document.querySelectorAll('#focus-mode .focus-row');
+            for(var i = 0; i < focusRows.length; i++) focusRows[i].classList.remove('correct');
+            var checks = document.querySelectorAll('#focus-mode .focus-check');
+            for(var i = 0; i < checks.length; i++) checks[i].style.display = 'none';
+        };
+        window.toggleHighContrast = function(){ document.body.classList.toggle('high-contrast'); };
+    </script>
 </body>
 </html>
