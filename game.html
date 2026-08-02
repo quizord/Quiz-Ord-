@@ -30,6 +30,7 @@
         body.high-contrast .focus-row.correct .focus-inputs input { background: #d4edda !important; border-color: #27ae60 !important; }
         body.high-contrast .focus-solution .focus-inputs input { background: #fffde7 !important; }
         body.high-contrast .focus-solution.correct .focus-inputs input { background: #fff3cd !important; }
+        body.high-contrast .focus-sum { border-color: #000 !important; background: #ffffff !important; }
         
         .container { background: #c0c0c0; padding: clamp(10px, 1.5vw, 20px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 100%; max-width: 1100px; }
         
@@ -72,7 +73,6 @@
             .puzzle-banner { 
                 padding-top: clamp(8px, 2vw, 12px); 
             }
-            /* Tvinga kvadratiska celler */
             td {
                 aspect-ratio: 1 / 1;
                 height: auto !important;
@@ -95,13 +95,13 @@
         .play-grid { display: flex; flex-wrap: wrap; gap: clamp(10px, 2vw, 18px); justify-content: center; align-items: flex-start; }
         .grid-half { flex: 0 1 auto; min-width: 170px; max-width: 55%; display: flex; justify-content: center; align-items: flex-start; }
         .clues-half { flex: 1 1 40%; min-width: 250px; max-width: 500px; }
-        .grid-wrapper { display: inline-block; padding: clamp(3px, 0.7vw, 5px); border: 3px solid #333333; border-radius: 10px; background: #408080; }
+        .grid-wrapper { display: inline-block; padding: clamp(3px, 0.7vw, 5px); border: 3px solid #333333; border-radius: 10px; background: #0080ff; }
         table.grid { border-collapse: collapse; margin: 0 auto; table-layout: fixed; }
         td { width: clamp(40px, min(5.090909090909091vw, 7vh), 68px); height: clamp(40px, min(5.090909090909091vw, 7vh), 68px); border: 1.5px solid #333333; text-align: center; font-size: clamp(17px, 2.8vw, 26px); font-weight: normal; vertical-align: middle; background: white; transition: outline 0.15s; position: relative; outline: 2px solid transparent; box-sizing: border-box; }
         td.empty { border: none; background: transparent; outline: none; }
         td.active { background: #ffffff; }
         td.given { background: #bbdefb; }
-        td.solution-given { background: #000080; }
+        td.solution-given { background: #2c3e50; }
         td.solution-given .given-letter { color: white; }
         td.dash-given { background: #e0e0e0; }
         td.given .given-letter { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: clamp(17px, 2.8vw, 26px); font-family: 'Patrick Hand', Verdana, sans-serif; overflow: hidden; }
@@ -111,25 +111,25 @@
         td.word-active { outline-color: #5dade2; }
         td.given.word-active { outline-color: transparent; }
         td.solution-correct { background: #fff3cd; border-color: #ffc107; color: #856404; animation: pulse 1.5s infinite; }
-        td.solution-given.solution-correct { animation: none; background: #000080; border-color: #333; color: white; }
+        td.solution-given.solution-correct { animation: none; background: #2c3e50; border-color: #333; color: white; }
         .clue-item { display: flex; align-items: center; gap: clamp(4px, 1vw, 7px); margin-bottom: clamp(3px, 0.7vw, 5px); padding: clamp(3px, 0.7vw, 6px) clamp(5px, 1vw, 9px); border-left: 4px solid #bdc3c7; background: #f8f9fa; border-radius: 6px; cursor: pointer; transition: 0.2s; font-family: 'Futura', 'Trebuchet MS', 'Arial', sans-serif; font-size: clamp(0.9rem, 1.4vw, 1.15rem); }
         .clue-item:hover { background: #ecf0f1; transform: translateX(4px); }
         .clue-item.active-clue { border-left-color: #3498db; background: #e8f4fd; }
-        .clue-item.correct-clue { border-left-color: #28a745; background: #d4edda; }
+        .clue-item.correct-clue { border-left-color: #28a745; background: #cbe9d2; }
         .clue-number { display: inline-flex; align-items: center; justify-content: center; width: clamp(20px, 2.3vw, 26px); height: clamp(20px, 2.3vw, 26px); background: #2c3e50; color: #ffffff; border-radius: 5px; font-size: clamp(0.8rem, 1.3vw, 1.1rem); }
         .clue-text { font-weight: normal; flex: 1; color: #2c3e50; }
         .clue-sum-box { background: white; border: 1px solid #ddd; border-radius: 6px; width: clamp(50px, 6.5vw, 65px); padding: clamp(1px, 0.3vw, 3px) clamp(3px, 0.7vw, 4px); text-align: center; font-size: clamp(0.75rem, 1.3vw, 0.95rem); color: #2c3e50; white-space: nowrap; }
         .clue-sum-live { }
         .clue-sum-total { display: none; }
         @media print { .clue-sum-live { display: none !important; } .clue-sum-total { display: inline !important; } }
-        .values-box { display: flex; gap: clamp(5px, 1.2vw, 12px); margin: clamp(5px, 1.2vw, 10px) 0 0 0; padding: clamp(4px, 1vw, 7px); background: #f1f2f6; border-radius: 6px; align-items: center; }
+        .values-box { display: flex; gap: clamp(5px, 1.2vw, 12px); margin: clamp(5px, 1.2vw, 10px) 0 0 0; padding: clamp(4px, 1vw, 7px); background: #f1f2f6; border-radius: 6px; align-items: center; border: 1px solid #333333; }
         .values-left { display: flex; flex-direction: column; gap: 3px; flex: 1 1 auto; min-width: 130px; }
         .val-row { display: flex; flex-wrap: nowrap; gap: 3px; align-items: center; white-space: nowrap; }
         .val-number { background: #2c3e50; color: #ffffff; padding: 2px 5px; border-radius: 6px; font-size: clamp(9px, 1.1vw, 11px); min-width: 18px; text-align: center; flex-shrink: 0; font-weight: bold; }
         .val-equals { font-weight: normal; margin: 0 2px; width: 8px; text-align: center; font-size: clamp(9px, 1.1vw, 11px); flex-shrink: 0; }
         .val-letters { display: flex; gap: 2px; flex-shrink: 0; }
         .val-letter { background: white; padding: 2px 4px; border-radius: 4px; border: 1px solid #ddd; font-size: clamp(9px, 1.1vw, 11px); }
-        .sponsor-image-wrapper { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; min-width: 45px; max-width: 130px; background: #e8e8e8; border-radius: 6px; padding: clamp(2px, 0.7vw, 5px); overflow: hidden; align-self: stretch; }
+        .sponsor-image-wrapper { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; min-width: 45px; max-width: 130px; background: #e8e8e8; border-radius: 6px; padding: clamp(2px, 0.7vw, 5px); overflow: hidden; align-self: stretch; border: 1px solid #333333; }
         .sponsor-image-wrapper.sponsor-empty { min-width: 30px; max-width: 50px; }
         .sponsor-image { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
         .sponsor-placeholder { font-size: clamp(16px, 2.2vw, 26px); opacity: 0.4; }
@@ -141,29 +141,29 @@
         
         /* === FOKUSLÄGE === */
         #focus-mode { display: none; margin-top: clamp(8px, 1.5vw, 16px); }
-        .focus-banner { background: #0000a0; color: #ffffff; padding: clamp(10px, 2vw, 20px) clamp(12px, 2vw, 24px); border-radius: 10px; text-align: center; font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: bold; margin-bottom: clamp(10px, 2vw, 20px); letter-spacing: 0.02em; }
-        .focus-row { display: flex; align-items: center; gap: clamp(6px, 1.2vw, 12px); margin-bottom: clamp(8px, 1.5vw, 14px); padding: clamp(8px, 1.2vw, 12px); background: #f8f9fa; border-radius: 8px; border-left: 4px solid #0000a0; flex-wrap: wrap; transition: all 0.3s; }
-        .focus-row.correct { border-left-color: #27ae60; background: #d4edda; }
+        .focus-banner { background: #0000a0; color: #ffffff; padding: clamp(12px, 2.5vw, 22px) clamp(14px, 2.5vw, 28px); border-radius: 12px; text-align: center; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: bold; margin-bottom: clamp(12px, 2.5vw, 24px); letter-spacing: 0.02em; }
+        .focus-row { display: flex; align-items: center; gap: clamp(8px, 1.5vw, 14px); margin-bottom: clamp(10px, 2vw, 16px); padding: clamp(10px, 1.5vw, 16px); background: #f8f9fa; border-radius: 10px; border-left: 5px solid #0000a0; flex-wrap: wrap; transition: all 0.3s; }
+        .focus-row.correct { border-left-color: #27ae60; background: #cbe9d2; }
         .focus-solution { background: #fefbb6; }
         .focus-solution.correct { background: #fff3cd; border-left-color: #f39c12; }
-        .focus-label { font-weight: 600; font-size: clamp(1rem, 2.2vw, 1.3rem); min-width: clamp(100px, 20vw, 180px); color: #2c3e50; cursor: pointer; }
+        .focus-label { font-weight: 600; font-size: clamp(1.1rem, 2.5vw, 1.4rem); min-width: clamp(110px, 22vw, 200px); color: #2c3e50; cursor: pointer; }
         .focus-label:hover { color: #3498db; }
-        .focus-inputs { display: flex; gap: clamp(4px, 0.8vw, 8px); flex-wrap: wrap; align-items: center; }
-        .focus-inputs input { width: clamp(40px, 5vw, 56px); height: clamp(40px, 5vw, 56px); border: 2px solid #333333; border-radius: 6px; text-align: center; font-size: clamp(20px, 3vw, 28px); font-weight: normal; text-transform: uppercase; background: white; font-family: 'Patrick Hand', Verdana, sans-serif; transition: all 0.2s; }
-        .focus-inputs input:focus { background: #fcf8e3; border-color: #3498db; outline: none; }
+        .focus-inputs { display: flex; gap: clamp(5px, 1vw, 10px); flex-wrap: wrap; align-items: center; }
+        .focus-inputs input { width: clamp(44px, 5.5vw, 60px); height: clamp(44px, 5.5vw, 60px); border: 2.5px solid #333333; border-radius: 8px; text-align: center; font-size: clamp(22px, 3.5vw, 30px); font-weight: normal; text-transform: uppercase; background: white; font-family: 'Patrick Hand', Verdana, sans-serif; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        .focus-inputs input:focus { background: #fcf8e3; border-color: #3498db; outline: none; box-shadow: 0 0 0 3px rgba(52,152,219,0.3); }
         .focus-row.correct .focus-inputs input { background: #e8f8f5; border-color: #27ae60; color: #155724; }
         .focus-solution .focus-inputs input { background: #fffde7; }
         .focus-solution.correct .focus-inputs input { background: #fff3cd; border-color: #f39c12; }
-        .focus-given { display: inline-flex; align-items: center; justify-content: center; width: clamp(40px, 5vw, 56px); height: clamp(40px, 5vw, 56px); background: #bbdefb; border: 2px solid #333333; border-radius: 6px; font-size: clamp(20px, 3vw, 28px); font-weight: bold; font-family: 'Patrick Hand', Verdana, sans-serif; }
-        .focus-solution .focus-given { background: #000080; color: white; }
-        .focus-arrow-cell { background: #000080 !important; color: white !important; font-size: clamp(24px, 4vw, 32px) !important; }
-        .focus-check { font-size: clamp(24px, 4vw, 32px); color: #27ae60; font-weight: bold; animation: fadeInUp 0.4s ease-out; min-width: 30px; text-align: center; }
-        .focus-sum { font-weight: bold; font-size: clamp(0.9rem, 1.5vw, 1.1rem); color: #2c3e50; white-space: nowrap; margin-left: auto; }
-        .focus-row.correct .focus-sum { color: #155724; }
+        .focus-given { display: inline-flex; align-items: center; justify-content: center; width: clamp(44px, 5.5vw, 60px); height: clamp(44px, 5.5vw, 60px); background: #bbdefb; border: 2.5px solid #333333; border-radius: 8px; font-size: clamp(22px, 3.5vw, 30px); font-weight: bold; font-family: 'Patrick Hand', Verdana, sans-serif; }
+        .focus-solution .focus-given { background: #2c3e50; color: white; }
+        .focus-arrow-cell { background: #2c3e50 !important; color: white !important; font-size: clamp(26px, 4.5vw, 34px) !important; }
+        .focus-check { font-size: clamp(26px, 4.5vw, 34px); color: #27ae60; font-weight: bold; animation: fadeInUp 0.4s ease-out; min-width: 34px; text-align: center; }
+        .focus-sum { font-weight: bold; font-size: clamp(1rem, 1.8vw, 1.2rem); color: #2c3e50; white-space: nowrap; margin-left: auto; background: white; border: 1px solid #333333; border-radius: 6px; padding: clamp(3px, 0.5vw, 6px) clamp(6px, 1vw, 10px); }
+        .focus-row.correct .focus-sum { color: #155724; border-color: #27ae60; background: #e8f8f5; }
         .focus-sum-live { }
         @media print { .focus-sum-live { display: none !important; } }
-        .focus-values { text-align: center; margin-top: clamp(10px, 2vw, 20px); padding: clamp(6px, 1vw, 10px); background: #f1f2f6; border-radius: 8px; font-size: clamp(0.85rem, 1.3vw, 1rem); display: flex; flex-wrap: wrap; gap: clamp(4px, 1vw, 10px); justify-content: center; }
-        .focus-val-group { background: white; padding: 2px 8px; border-radius: 4px; border: 1px solid #ddd; }
+        .focus-values { text-align: center; margin-top: clamp(12px, 2.5vw, 24px); padding: clamp(8px, 1.5vw, 14px); background: #f1f2f6; border-radius: 10px; font-size: clamp(0.9rem, 1.5vw, 1.1rem); display: flex; flex-wrap: wrap; gap: clamp(5px, 1.2vw, 12px); justify-content: center; border: 1px solid #333333; }
+        .focus-val-group { background: white; padding: 3px 10px; border-radius: 5px; border: 1px solid #ddd; }
         
         @media print { 
             body { background: white !important; padding: 0.5cm; max-width: 100%; display: block; min-height: auto; } 
@@ -171,7 +171,15 @@
             .top-bar button, .win-message, .win-image-wrapper { display: none; } 
             .banner-right { display: none !important; }
         }
-        @media (max-width: 650px) { .grid-half { max-width: 100%; flex: 1 1 100%; } .clues-half { flex: 1 1 100%; max-width: 100%; } .win-area { flex-direction: column; align-items: stretch; } .win-image-wrapper { max-width: 100%; } .focus-row { flex-direction: column; align-items: flex-start; } .focus-sum { margin-left: 0; } }
+        /* iPad/tablet porträtt: stapla grid och clues */
+        @media (max-width: 768px) { 
+            .grid-half { max-width: 100%; flex: 1 1 100%; } 
+            .clues-half { flex: 1 1 100%; max-width: 100%; } 
+            .win-area { flex-direction: column; align-items: stretch; } 
+            .win-image-wrapper { max-width: 100%; } 
+            .focus-row { flex-direction: column; align-items: flex-start; } 
+            .focus-sum { margin-left: 0; align-self: flex-end; } 
+        }
         @media (max-width: 480px) { .values-box { flex-direction: column; align-items: stretch; } .sponsor-image-wrapper { max-width: 100%; min-height: 40px; max-height: 80px; } }
     </style>
 </head>
@@ -245,6 +253,19 @@
     function buildMaps(){cellWords={};cellCoords={};for(var word in wordMap){var pos=wordMap[word];if(pos.direction==='H'){for(var i=0;i<word.length;i++){var cellId=pos.y+'-'+(pos.x+i);if(!cellWords[cellId])cellWords[cellId]=[];if(cellWords[cellId].indexOf(word)===-1)cellWords[cellId].push(word);cellCoords[cellId]={x:pos.x+i,y:pos.y};}}else if(pos.direction==='V'){for(var i=0;i<word.length;i++){var cellId=(pos.y+i)+'-'+pos.x;if(!cellWords[cellId])cellWords[cellId]=[];if(cellWords[cellId].indexOf(word)===-1)cellWords[cellId].push(word);cellCoords[cellId]={x:pos.x,y:pos.y+i};}}}}
     buildMaps();
 
+    // Hjälpfunktion: kolla om ett ord är korrekt (matchar facit)
+    function isWordCorrect(word) {
+        if (!word || !allWordInputs[word]) return false;
+        var inputs = allWordInputs[word];
+        for (var i = 0; i < inputs.length; i++) {
+            if (!inputs[i].value || inputs[i].value.trim() === '') return false;
+            var cellId = inputs[i].dataset.cellId;
+            var parts = cellId.split('-');
+            if (playerInputs[cellId] !== grid[parseInt(parts[0])][parseInt(parts[1])]) return false;
+        }
+        return true;
+    }
+
     function findWordForCell(cellId){var words=cellWords[cellId]||[];if(activeWord&&words.indexOf(activeWord)!==-1)return activeWord;return words.length>0?words[0]:null;}
     function isWordFilled(word){if(!word||!allWordInputs[word])return false;var inputs=allWordInputs[word];for(var i=0;i<inputs.length;i++){if(!inputs[i].value||inputs[i].value.trim()==='')return false;}return true;}
     
@@ -260,7 +281,7 @@
             if(idx !== -1 && idx < arr.length - 1){
                 arr[idx + 1].focus();
                 arr[idx + 1].select();
-            } else if(idx === arr.length - 1 && isWordFilled(activeWord)){
+            } else if(idx === arr.length - 1 && isWordCorrect(activeWord)){
                 input.blur();
             }
         }
@@ -277,6 +298,9 @@
         
         var cellId = input.dataset.cellId;
         playerInputs[cellId] = cleanValue;
+        
+        var parentRow = input.closest('.focus-row');
+        var wordForRow = parentRow ? parentRow.dataset.word : null;
         
         var wordsSharingCell = cellWords[cellId] || [];
         wordsSharingCell.forEach(function(word) {
@@ -298,15 +322,21 @@
             }
         });
         
-        var parentRow = input.closest('.focus-row');
         if (parentRow && cleanValue) {
             var rowInputs = parentRow.querySelectorAll('input');
             var currentIdx = Array.from(rowInputs).indexOf(input);
             if (currentIdx !== -1 && currentIdx < rowInputs.length - 1) {
                 rowInputs[currentIdx + 1].focus();
                 rowInputs[currentIdx + 1].select();
-            } else if (currentIdx === rowInputs.length - 1) {
+            } else {
                 input.blur();
+            }
+        }
+        
+        // NYTT: Stäng tangentbordet ENDAST om ordet är HELT KORREKT
+        if (wordForRow && isWordCorrect(wordForRow)) {
+            if (document.activeElement && document.activeElement.tagName === 'INPUT') {
+                document.activeElement.blur();
             }
         }
         
@@ -340,30 +370,7 @@
             var focusRow = document.querySelector('#focus-mode .focus-row[data-word="' + word + '"]');
             if (!checkSpan || !focusRow) return;
             
-            var isCorrect = true;
-            var pos = wordMap[word];
-            if (!pos) { isCorrect = false; }
-            else {
-                if (pos.direction === 'H') {
-                    for (var i = 0; i < word.length; i++) {
-                        var cellId = pos.y + '-' + (pos.x + i);
-                        if (playerInputs[cellId] !== grid[parseInt(cellId.split('-')[0])][parseInt(cellId.split('-')[1])]) {
-                            isCorrect = false;
-                            break;
-                        }
-                    }
-                } else {
-                    for (var i = 0; i < word.length; i++) {
-                        var cellId = (pos.y + i) + '-' + pos.x;
-                        if (playerInputs[cellId] !== grid[parseInt(cellId.split('-')[0])][parseInt(cellId.split('-')[1])]) {
-                            isCorrect = false;
-                            break;
-                        }
-                    }
-                }
-            }
-            
-            if (isCorrect && isWordFilled(word)) {
+            if (isWordCorrect(word)) {
                 checkSpan.style.display = 'inline';
                 focusRow.classList.add('correct');
             } else {
@@ -424,28 +431,7 @@
     }
     
     function checkAutoReturn() {
-        var pos = wordMap[solutionWord];
-        if (!pos) return;
-        var isCorrect = true;
-        if (pos.direction === 'H') {
-            for (var i = 0; i < solutionWord.length; i++) {
-                var cellId = pos.y + '-' + (pos.x + i);
-                if ((playerInputs[cellId] || '') !== grid[parseInt(cellId.split('-')[0])][parseInt(cellId.split('-')[1])]) {
-                    isCorrect = false;
-                    break;
-                }
-            }
-        } else {
-            for (var i = 0; i < solutionWord.length; i++) {
-                var cellId = (pos.y + i) + '-' + pos.x;
-                if ((playerInputs[cellId] || '') !== grid[parseInt(cellId.split('-')[0])][parseInt(cellId.split('-')[1])]) {
-                    isCorrect = false;
-                    break;
-                }
-            }
-        }
-        
-        if (isCorrect && isWordFilled(solutionWord)) {
+        if (isWordCorrect(solutionWord)) {
             var focusMode = document.getElementById('focus-mode');
             if (focusMode.style.display === 'block') {
                 setTimeout(function() {
@@ -627,14 +613,7 @@
     function updateAllFilledStatus(){
         var correctWords = {};
         for(var word in wordMap){
-            var inputs = allWordInputs[word];
-            if(!inputs) continue;
-            correctWords[word] = true;
-            for(var i = 0; i < inputs.length; i++){
-                var cellId = inputs[i].dataset.cellId;
-                var parts = cellId.split('-');
-                if(playerInputs[cellId] !== grid[parseInt(parts[0])][parseInt(parts[1])]){ correctWords[word] = false; break; }
-            }
+            correctWords[word] = isWordCorrect(word);
         }
         var clueItems = document.querySelectorAll('.clue-item');
         for(var i = 0; i < clueItems.length; i++){
