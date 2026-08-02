@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #727272; padding: clamp(6px, 1.2vw, 16px); width: 95%; max-width: 1100px; margin: 0 auto; font-size: clamp(1rem, 2.2vw, 1.25rem); display: flex; justify-content: center; min-height: 100vh; transition: all 0.3s; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: clamp(6px, 1.2vw, 16px); width: 95%; max-width: 1100px; margin: 0 auto; font-size: clamp(1rem, 2.2vw, 1.25rem); display: flex; justify-content: center; min-height: 100vh; transition: all 0.3s; }
         
         body.high-contrast { background: #ffffff !important; color: #000000 !important; }
         body.high-contrast .container { background: #ffffff !important; border: 3px solid #000 !important; }
@@ -32,9 +32,9 @@
         body.high-contrast .focus-solution.correct .focus-inputs input { background: #fff3cd !important; }
         body.high-contrast .focus-sum { border-color: #000 !important; background: #ffffff !important; }
         
-        .container { background: #c0c0c0; padding: clamp(10px, 1.5vw, 20px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 100%; max-width: 1100px; }
+        .container { background: #ffffff; padding: clamp(10px, 1.5vw, 20px); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 100%; max-width: 1100px; }
         
-        #normal-view .puzzle-banner { background: #0000a0; color: #ffffff; padding: clamp(6px, 1.2vw, 12px) clamp(8px, 1.5vw, 16px); border-radius: 10px; margin-bottom: clamp(6px, 1.2vw, 12px); display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; flex-wrap: wrap; gap: 5px; position: relative; }
+        #normal-view .puzzle-banner { background: #2c3e50; color: #ffffff; padding: clamp(6px, 1.2vw, 12px) clamp(8px, 1.5vw, 16px); border-radius: 10px; margin-bottom: clamp(6px, 1.2vw, 12px); display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; flex-wrap: wrap; gap: 5px; position: relative; }
         .logo-banner { background: transparent; padding: 0; border-radius: 0; display: flex; align-items: center; justify-content: center; box-shadow: none; width: auto; flex-shrink: 0; }
         .logo-img { height: clamp(38px, 5.5vw, 60px); width: auto; display: block; }
         .logo-fallback { display: none; font-size: 1.1rem; font-weight: 800; color: #ffffff; text-align: center; line-height: 1.2; }
@@ -69,7 +69,7 @@
         .play-grid { display: flex; flex-wrap: wrap; gap: clamp(10px, 2vw, 18px); justify-content: center; align-items: flex-start; }
         .grid-half { flex: 0 1 auto; min-width: 170px; max-width: 55%; display: flex; justify-content: center; align-items: flex-start; }
         .clues-half { flex: 1 1 40%; min-width: 250px; max-width: 500px; }
-        .grid-wrapper { display: inline-block; padding: clamp(3px, 0.7vw, 5px); border: 3px solid #333333; border-radius: 10px; background: #004000; }
+        .grid-wrapper { display: inline-block; padding: clamp(3px, 0.7vw, 5px); border: 3px solid #333333; border-radius: 10px; background: #f1f2f6; }
         table.grid { border-collapse: collapse; margin: 0 auto; table-layout: fixed; }
         td { width: clamp(40px, min(5.090909090909091vw, 7vh), 68px); height: clamp(40px, min(5.090909090909091vw, 7vh), 68px); border: 1.5px solid #333333; text-align: center; font-size: clamp(17px, 2.8vw, 26px); font-weight: normal; vertical-align: middle; background: white; transition: outline 0.15s; position: relative; outline: 2px solid transparent; box-sizing: border-box; }
         td.empty { border: none; background: transparent; outline: none; }
@@ -79,7 +79,7 @@
         td.solution-given .given-letter { color: white; }
         td.dash-given { background: #e0e0e0; }
         td.given .given-letter { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: clamp(17px, 2.8vw, 26px); font-family: 'Patrick Hand', Verdana, sans-serif; overflow: hidden; }
-        td.active[data-solution="true"]:not(.given):not(.solution-given) { background: #fefbb6; }
+        td.active[data-solution="true"]:not(.given):not(.solution-given) { background: #fffde7; }
         td.active input { width: 100%; height: 100%; border: none; text-align: center; font-size: clamp(17px, 2.8vw, 26px); font-weight: normal; background: transparent; outline: none; text-transform: uppercase; padding: 0; margin: 0; cursor: pointer; font-family: 'Patrick Hand', Verdana, sans-serif; overflow: hidden; }
         td.active input:focus { background: #fcf8e3; }
         td.word-active { outline-color: #5dade2; }
@@ -114,10 +114,10 @@
         .close:hover { color: #000; }
         
         #focus-mode { display: none; margin-top: clamp(8px, 1.5vw, 16px); }
-        .focus-banner { background: #0000a0; color: #ffffff; padding: clamp(12px, 2.5vw, 22px) clamp(14px, 2.5vw, 28px); border-radius: 12px; text-align: center; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: bold; margin-bottom: clamp(12px, 2.5vw, 24px); letter-spacing: 0.02em; }
-        .focus-row { display: flex; align-items: center; gap: clamp(8px, 1.5vw, 14px); margin-bottom: clamp(10px, 2vw, 16px); padding: clamp(10px, 1.5vw, 16px); background: #f8f9fa; border-radius: 10px; border-left: 5px solid #0000a0; flex-wrap: wrap; transition: all 0.3s; }
+        .focus-banner { background: #2c3e50; color: #ffffff; padding: clamp(12px, 2.5vw, 22px) clamp(14px, 2.5vw, 28px); border-radius: 12px; text-align: center; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: bold; margin-bottom: clamp(12px, 2.5vw, 24px); letter-spacing: 0.02em; }
+        .focus-row { display: flex; align-items: center; gap: clamp(8px, 1.5vw, 14px); margin-bottom: clamp(10px, 2vw, 16px); padding: clamp(10px, 1.5vw, 16px); background: #f8f9fa; border-radius: 10px; border-left: 5px solid #2c3e50; flex-wrap: wrap; transition: all 0.3s; }
         .focus-row.correct { border-left-color: #27ae60; background: #d4edda; }
-        .focus-solution { background: #fefbb6; }
+        .focus-solution { background: #fffde7; }
         .focus-solution.correct { background: #fff3cd; border-left-color: #f39c12; }
         .focus-label { font-weight: 600; font-size: clamp(1.1rem, 2.5vw, 1.4rem); min-width: clamp(110px, 22vw, 200px); color: #2c3e50; cursor: pointer; }
         .focus-label:hover { color: #3498db; }
@@ -459,8 +459,9 @@
                 winDiv.style.display = 'block'; 
                 if(winImg) winImg.classList.add('visible'); 
                 winShown = true;
-                // *** VIKTIGT: Stäng tangentbordet samtidigt som grattismeddelandet visas ***
+                // *** VIKTIGT: Stäng tangentbordet samtidigt som vinstbanner + bockar visas ***
                 closeKeyboard();
+                updateFocusChecks(); // Uppdatera alla bockar
                 checkAutoReturn();
             } else if(!correctWords[solutionWord]){
                 winDiv.style.display = 'none'; 
