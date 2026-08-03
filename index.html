@@ -1,124 +1,106 @@
-<!DOCTYPE html>
+                                                                          <!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>QuizOrd - Gåtfull Ordlek</title>
     <style>
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-        }
-        
-        html, body {
-            height: 100%;
-            height: 100dvh;
-            overflow: hidden;
-        }
-        
+        * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: clamp(10px, 2vw, 20px);
         }
         
         .container {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: clamp(12px, 2vw, 20px);
+            border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.4);
             max-width: 650px;
             width: 100%;
-            max-height: 100%;
-            height: auto;
-            padding: clamp(15px, 3vw, 30px) clamp(15px, 3vw, 35px);
+            padding: 30px 35px 40px 35px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: clamp(8px, 1.5vw, 15px);
         }
         
         .logo-container {
-            flex-shrink: 0;
+            margin-bottom: 20px;
         }
         
         .logo-container img {
-            max-width: min(300px, 60%);
-            width: auto;
-            height: clamp(40px, 8vw, 80px);
-            object-fit: contain;
+            max-width: 300px;
+            width: 80%;
+            height: auto;
         }
         
         .welcome-text {
             color: #333;
-            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-            line-height: 1.6;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 0 0 30px 0;
             font-weight: 500;
-            flex-shrink: 0;
         }
         
         .welcome-text .highlight {
             font-weight: 700;
         }
         
-        .highlight-read { color: #e74c3c; }
-        .highlight-solve { color: #2c5aa0; }
-        .highlight-crack { color: #27ae60; }
+        .highlight-read {
+            color: #e74c3c;
+        }
+        
+        .highlight-solve {
+            color: #2c5aa0;
+        }
+        
+        .highlight-crack {
+            color: #27ae60;
+        }
         
         .game-card {
             background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
             border: 2px solid #667eea;
-            border-radius: clamp(10px, 1.5vw, 15px);
-            padding: clamp(10px, 2vw, 20px);
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-            gap: clamp(8px, 1.5vw, 15px);
-            min-height: 0;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 0 15px 0;
         }
         
         .game-thumbnail {
-            flex: 1 1 auto;
+            width: 100%;
+            height: 350px;
             background: white;
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px;
             border: 2px solid #ddd;
             overflow: hidden;
-            min-height: 0;
-            position: relative;
         }
         
         .game-thumbnail img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 5px;
         }
         
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: clamp(10px, 2vw, 16px) clamp(30px, 6vw, 50px);
+            padding: 16px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+            font-size: 1.2rem;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            flex-shrink: 0;
-            white-space: nowrap;
         }
         
         .cta-button:hover {
@@ -127,56 +109,104 @@
         }
         
         .footer {
-            padding-top: clamp(8px, 1.5vw, 15px);
+            padding-top: 20px;
             border-top: 1px solid #eee;
             color: #999;
-            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-            flex-shrink: 0;
+            font-size: 0.9rem;
         }
         
         .footer-note {
             color: #888;
-            font-size: clamp(0.65rem, 1.2vw, 0.85rem);
-            margin-top: 4px;
+            font-size: 0.85rem;
+            margin-top: 8px;
             font-style: italic;
         }
         
-        @media (max-height: 700px) {
-            .welcome-text {
-                font-size: 0.85rem;
-                line-height: 1.4;
+        /* Mobil - staplat */
+        @media (max-width: 500px) {
+            .container {
+                padding: 25px 20px 30px 20px;
             }
-            .welcome-text br { display: none; }
-            .footer { font-size: 0.7rem; padding-top: 6px; }
-            .footer-note { font-size: 0.65rem; }
+            .welcome-text {
+                font-size: 1rem;
+            }
+            .game-thumbnail {
+                height: 250px;
+            }
+            .cta-button {
+                padding: 14px 35px;
+                font-size: 1rem;
+            }
+            .logo-container img {
+                max-width: 220px;
+            }
         }
         
-        @media (max-width: 900px) and (orientation: landscape) {
+        /* iPad stående - samma som mobil */
+        @media (min-width: 501px) and (max-width: 1024px) and (orientation: portrait) {
             .container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 10px;
-                padding: 12px 15px;
+                padding: 25px 20px 30px 20px;
             }
-            .logo-container { flex: 0 0 auto; width: auto; }
-            .logo-container img { height: 35px; }
-            .welcome-text { flex: 1 1 100%; font-size: 0.8rem; order: 1; }
-            .game-card { flex: 1 1 60%; flex-direction: row; align-items: center; gap: 10px; order: 2; }
-            .game-thumbnail { flex: 1 1 50%; min-height: 100px; }
-            .cta-button { flex-shrink: 0; padding: 8px 20px; font-size: 0.85rem; }
-            .footer { flex: 1 1 100%; order: 3; padding-top: 6px; }
+            .welcome-text {
+                font-size: 1rem;
+            }
+            .game-thumbnail {
+                height: 280px;
+            }
+            .cta-button {
+                padding: 14px 35px;
+                font-size: 1rem;
+            }
+            .logo-container img {
+                max-width: 220px;
+            }
+        }
+        
+        /* Desktop liggande - kompakt */
+        @media (min-width: 1025px) and (orientation: landscape) {
+            .container {
+                padding: 20px 35px 25px 35px;
+            }
+            .logo-container {
+                margin-bottom: 10px;
+            }
+            .logo-container img {
+                max-width: 200px;
+            }
+            .welcome-text {
+                font-size: 1rem;
+                margin: 0 0 15px 0;
+            }
+            .game-card {
+                padding: 15px;
+                margin: 0 0 10px 0;
+            }
+            .game-thumbnail {
+                height: 250px;
+                margin-bottom: 15px;
+            }
+            .cta-button {
+                padding: 12px 40px;
+                font-size: 1rem;
+            }
+            .footer {
+                padding-top: 12px;
+                font-size: 0.8rem;
+            }
+            .footer-note {
+                font-size: 0.75rem;
+                margin-top: 4px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         
-        <!-- LOGGA -->
         <div class="logo-container">
-            <img src="logo.png" alt="QuizOrd Logga" id="logoImage">
+            <img src="logo.png" alt="QuizOrd Logga">
         </div>
         
-        <!-- VÄLKOMSTTEXT -->
         <div class="welcome-text">
             Välkommen till QuizOrd!<br>
             <span class="highlight highlight-read">LÄS</span> gåtan · 
@@ -184,70 +214,17 @@
             <span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
         </div>
         
-        <!-- SPELKORT MED THUMBNAIL -->
         <div class="game-card">
             <div class="game-thumbnail">
-                <img src="Thumbnail.png" alt="QuizOrd teaser" id="thumbnailImage">
+                <img src="Thumbnail.png" alt="QuizOrd teaser">
             </div>
             <a href="game.html" class="cta-button">▶️ Starta spelet</a>
         </div>
         
-        <!-- SIDFOT -->
         <div class="footer">
             <p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
             <p class="footer-note">QuizOrd — Utvecklat med ❤️ för ordälskare</p>
         </div>
         
     </div>
-
-    <!-- DEBUG-SKRIPT -->
-    <script>
-        (function() {
-            console.log('🔍 QuizOrd Debug - Testar bildladdning...');
-            console.log('📂 Sökväg för logo: logo.png');
-            console.log('📂 Sökväg för Thumbnail: Thumbnail.png');
-            
-            var logoImg = document.getElementById('logoImage');
-            var thumbImg = document.getElementById('thumbnailImage');
-            
-            // Testa logo
-            if (logoImg) {
-                logoImg.addEventListener('load', function() {
-                    console.log('✅ Logo laddad! Storlek: ' + logoImg.naturalWidth + 'x' + logoImg.naturalHeight);
-                });
-                logoImg.addEventListener('error', function() {
-                    console.error('❌ Logo kunde INTE laddas från: logo.png');
-                });
-                // Om redan laddad
-                if (logoImg.complete && logoImg.naturalWidth > 0) {
-                    console.log('✅ Logo redan laddad! Storlek: ' + logoImg.naturalWidth + 'x' + logoImg.naturalHeight);
-                } else if (logoImg.complete) {
-                    console.error('❌ Logo kunde INTE laddas från: logo.png');
-                }
-            }
-            
-            // Testa Thumbnail
-            if (thumbImg) {
-                thumbImg.addEventListener('load', function() {
-                    console.log('✅ Thumbnail laddad! Storlek: ' + thumbImg.naturalWidth + 'x' + thumbImg.naturalHeight);
-                });
-                thumbImg.addEventListener('error', function() {
-                    console.error('❌ Thumbnail kunde INTE laddas från: Thumbnail.png');
-                    console.log('💡 Tips: Kontrollera att filen heter exakt "Thumbnail.png" (stort T)');
-                    console.log('💡 Testa att öppna denna URL direkt: ' + window.location.origin + window.location.pathname.replace('index.html', '') + 'Thumbnail.png');
-                });
-                // Om redan laddad
-                if (thumbImg.complete && thumbImg.naturalWidth > 0) {
-                    console.log('✅ Thumbnail redan laddad! Storlek: ' + thumbImg.naturalWidth + 'x' + thumbImg.naturalHeight);
-                } else if (thumbImg.complete) {
-                    console.error('❌ Thumbnail kunde INTE laddas från: Thumbnail.png');
-                    console.log('💡 Direktlänk att testa: ' + window.location.origin + window.location.pathname.replace('index.html', '') + 'Thumbnail.png');
-                }
-            }
-            
-            console.log('🌐 Sidans URL: ' + window.location.href);
-            console.log('📁 Bas-sökväg: ' + window.location.origin + window.location.pathname.replace('index.html', ''));
-        })();
-    </script>
 </body>
-</html>
