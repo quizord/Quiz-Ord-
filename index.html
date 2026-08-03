@@ -53,13 +53,6 @@
             object-fit: contain;
         }
         
-        .logo-fallback {
-            display: none;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            font-weight: 800;
-            color: #2c3e50;
-        }
-        
         .welcome-text {
             color: #333;
             font-size: clamp(0.9rem, 2.5vw, 1.2rem);
@@ -72,17 +65,9 @@
             font-weight: 700;
         }
         
-        .highlight-read {
-            color: #e74c3c;
-        }
-        
-        .highlight-solve {
-            color: #2c5aa0;
-        }
-        
-        .highlight-crack {
-            color: #27ae60;
-        }
+        .highlight-read { color: #e74c3c; }
+        .highlight-solve { color: #2c5aa0; }
+        .highlight-crack { color: #27ae60; }
         
         .game-card {
             background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
@@ -117,11 +102,6 @@
             height: 100%;
             object-fit: contain;
             padding: 5px;
-        }
-        
-        .thumbnail-fallback {
-            display: none;
-            font-size: clamp(3rem, 8vw, 6rem);
         }
         
         .cta-button {
@@ -166,16 +146,9 @@
                 font-size: 0.85rem;
                 line-height: 1.4;
             }
-            .welcome-text br {
-                display: none;
-            }
-            .footer {
-                font-size: 0.7rem;
-                padding-top: 6px;
-            }
-            .footer-note {
-                font-size: 0.65rem;
-            }
+            .welcome-text br { display: none; }
+            .footer { font-size: 0.7rem; padding-top: 6px; }
+            .footer-note { font-size: 0.65rem; }
         }
         
         @media (max-width: 900px) and (orientation: landscape) {
@@ -185,51 +158,22 @@
                 gap: 10px;
                 padding: 12px 15px;
             }
-            .logo-container {
-                flex: 0 0 auto;
-                width: auto;
-            }
-            .logo-container img {
-                height: 35px;
-            }
-            .welcome-text {
-                flex: 1 1 100%;
-                font-size: 0.8rem;
-                order: 1;
-            }
-            .game-card {
-                flex: 1 1 60%;
-                flex-direction: row;
-                align-items: center;
-                gap: 10px;
-                order: 2;
-            }
-            .game-thumbnail {
-                flex: 1 1 50%;
-                min-height: 100px;
-            }
-            .cta-button {
-                flex-shrink: 0;
-                padding: 8px 20px;
-                font-size: 0.85rem;
-            }
-            .footer {
-                flex: 1 1 100%;
-                order: 3;
-                padding-top: 6px;
-            }
+            .logo-container { flex: 0 0 auto; width: auto; }
+            .logo-container img { height: 35px; }
+            .welcome-text { flex: 1 1 100%; font-size: 0.8rem; order: 1; }
+            .game-card { flex: 1 1 60%; flex-direction: row; align-items: center; gap: 10px; order: 2; }
+            .game-thumbnail { flex: 1 1 50%; min-height: 100px; }
+            .cta-button { flex-shrink: 0; padding: 8px 20px; font-size: 0.85rem; }
+            .footer { flex: 1 1 100%; order: 3; padding-top: 6px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         
-        <!-- LOGGA -->
+        <!-- LOGGA - samma sökväg som i din gamla fungerande kod -->
         <div class="logo-container">
-            <img src="https://quizord.github.io/quizord/main/logo.png"
-                 alt="QuizOrd Logga" 
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div class="logo-fallback">🧩 QUIZORD</div>
+            <img src="logo.png" alt="QuizOrd Logga">
         </div>
         
         <!-- VÄLKOMSTTEXT -->
@@ -240,14 +184,12 @@
             <span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
         </div>
         
-        <!-- SPELKORT MED THUMBNAIL -->
+        <!-- SPELKORT MED THUMBNAIL - samma sökväg som i din gamla fungerande kod -->
         <div class="game-card">
             <div class="game-thumbnail">
-                <img src="https://quizord.github.io/quizord/main/Thumbnail.png" 
-                     alt="QuizOrd teaser" 
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="thumbnail-fallback" style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">🧩</div>
+                <img src="Thumbnail.png" alt="QuizOrd teaser">
             </div>
+            <!-- Länk till spelet - samma som i din gamla fungerande kod -->
             <a href="game.html" class="cta-button">▶️ Starta spelet</a>
         </div>
         
