@@ -241,13 +241,11 @@
         
         <!-- SPELKORT MED THUMBNAIL -->
         <div class="game-card">
-            <div class="game-thumbnail">
-                <!-- HUVUDBILDEN - Thumbnail.png från Main-mappen -->
-                <img src="Main/Thumbnail.png" alt="QuizOrd teaser" 
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="thumbnail-fallback" style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">🧩</div>
+            <div class="game-thumbnail" id="thumbnailContainer">
+                <!-- JavaScript hanterar bildladdningen -->
+                <div class="thumbnail-fallback" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%;">🧩</div>
             </div>
-            <a href="Main/game.html" class="cta-button">▶️ Starta spelet</a>
+            <a href="Main/game.html" class="cta-button" id="startButton">▶️ Starta spelet</a>
         </div>
         
         <!-- SIDFOT -->
@@ -257,5 +255,85 @@
         </div>
         
     </div>
+
+    <script>
+        // Försök ladda Thumbnail-bilden från olika sökvägar
+        (function() {
+            var container = document.getElementById('thumbnailContainer');
+            var fallback = container.querySelector('.thumbnail-fallback');
+            
+            // Lista med möjliga sökvägar att testa
+            var paths = [
+                'Main/Thumbnail.png',       // index.html bredvid Main/
+                'Thumbnail.png',            // index.html inuti Main/
+                './Main/Thumbnail.png',     // explicit relativ med Main/
+                './Thumbnail.png'           // explicit relativ utan Main/
+            ];
+            
+            var currentPathIndex = 0;
+            
+            function tryNextPath() {
+                if (currentPathIndex >= paths.length) {
+                    // Alla sökvägar misslyckades - fallback visas redan
+                    console.log('⚠️ Kunde inte ladda Thumbnail.png från någon sökväg');
+                    // Testa även game.html
+                    testGamePath();
+                    return;
+                }
+                
+                var img = new Image();
+                var currentPath = paths[currentPathIndex];
+                
+                img.onload = function() {
+                    // Bilden laddades! Visa den
+                    console.log('✅ Thumbnail laddad från: ' + currentPath);
+                    fallback.style.display = 'none';
+                    img.style.position = 'absolute';
+                    img.style.top = '0';
+                    img.style.left = '0';
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'contain';
+                    img.style.padding = '5px';
+                    img.alt = 'QuizOrd teaser';
+                    container.insertBefore(img, fallback);
+                    
+                    // Uppdatera game.html-sökvägen baserat på vilken som funkade
+                    updateGamePath(currentPath);
+                };
+                
+                img.onerror = function() {
+                    // Testa nästa sökväg
+                    currentPathIndex++;
+                    tryNextPath();
+                };
+                
+                img.src = currentPath;
+            }
+            
+            function updateGamePath(thumbnailPath) {
+                var startButton = document.getElementById('startButton');
+                if (thumbnailPath.indexOf('Main/') !== -1 || thumbnailPath.indexOf('Main\\') !== -1) {
+                    startButton.href = 'Main/game.html';
+                } else {
+                    startButton.href = 'game.html';
+                }
+                console.log('🔗 Spel-länk satt till: ' + startButton.href);
+            }
+            
+            function testGamePath() {
+                // Testa om game.html finns
+                var testPaths = ['Main/game.html', 'game.html'];
+                var startButton = document.getElementById('startButton');
+                
+                // Sätt en standard först
+                startButton.href = 'Main/game.html';
+                console.log('🔗 Standard spel-länk: ' + startButton.href);
+            }
+            
+            // Starta laddningen
+            tryNextPath();
+        })();
+    </script>
 </body>
 </html>
