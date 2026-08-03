@@ -171,9 +171,9 @@
 <body>
     <div class="container">
         
-        <!-- LOGGA - samma sökväg som i din gamla fungerande kod -->
+        <!-- LOGGA -->
         <div class="logo-container">
-            <img src="logo.png" alt="QuizOrd Logga">
+            <img src="logo.png" alt="QuizOrd Logga" id="logoImage">
         </div>
         
         <!-- VÄLKOMSTTEXT -->
@@ -184,12 +184,11 @@
             <span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
         </div>
         
-        <!-- SPELKORT MED THUMBNAIL - samma sökväg som i din gamla fungerande kod -->
+        <!-- SPELKORT MED THUMBNAIL -->
         <div class="game-card">
             <div class="game-thumbnail">
-                <img src="Thumbnail.png" alt="QuizOrd teaser">
+                <img src="Thumbnail.png" alt="QuizOrd teaser" id="thumbnailImage">
             </div>
-            <!-- Länk till spelet - samma som i din gamla fungerande kod -->
             <a href="game.html" class="cta-button">▶️ Starta spelet</a>
         </div>
         
@@ -200,5 +199,55 @@
         </div>
         
     </div>
+
+    <!-- DEBUG-SKRIPT -->
+    <script>
+        (function() {
+            console.log('🔍 QuizOrd Debug - Testar bildladdning...');
+            console.log('📂 Sökväg för logo: logo.png');
+            console.log('📂 Sökväg för Thumbnail: Thumbnail.png');
+            
+            var logoImg = document.getElementById('logoImage');
+            var thumbImg = document.getElementById('thumbnailImage');
+            
+            // Testa logo
+            if (logoImg) {
+                logoImg.addEventListener('load', function() {
+                    console.log('✅ Logo laddad! Storlek: ' + logoImg.naturalWidth + 'x' + logoImg.naturalHeight);
+                });
+                logoImg.addEventListener('error', function() {
+                    console.error('❌ Logo kunde INTE laddas från: logo.png');
+                });
+                // Om redan laddad
+                if (logoImg.complete && logoImg.naturalWidth > 0) {
+                    console.log('✅ Logo redan laddad! Storlek: ' + logoImg.naturalWidth + 'x' + logoImg.naturalHeight);
+                } else if (logoImg.complete) {
+                    console.error('❌ Logo kunde INTE laddas från: logo.png');
+                }
+            }
+            
+            // Testa Thumbnail
+            if (thumbImg) {
+                thumbImg.addEventListener('load', function() {
+                    console.log('✅ Thumbnail laddad! Storlek: ' + thumbImg.naturalWidth + 'x' + thumbImg.naturalHeight);
+                });
+                thumbImg.addEventListener('error', function() {
+                    console.error('❌ Thumbnail kunde INTE laddas från: Thumbnail.png');
+                    console.log('💡 Tips: Kontrollera att filen heter exakt "Thumbnail.png" (stort T)');
+                    console.log('💡 Testa att öppna denna URL direkt: ' + window.location.origin + window.location.pathname.replace('index.html', '') + 'Thumbnail.png');
+                });
+                // Om redan laddad
+                if (thumbImg.complete && thumbImg.naturalWidth > 0) {
+                    console.log('✅ Thumbnail redan laddad! Storlek: ' + thumbImg.naturalWidth + 'x' + thumbImg.naturalHeight);
+                } else if (thumbImg.complete) {
+                    console.error('❌ Thumbnail kunde INTE laddas från: Thumbnail.png');
+                    console.log('💡 Direktlänk att testa: ' + window.location.origin + window.location.pathname.replace('index.html', '') + 'Thumbnail.png');
+                }
+            }
+            
+            console.log('🌐 Sidans URL: ' + window.location.href);
+            console.log('📁 Bas-sökväg: ' + window.location.origin + window.location.pathname.replace('index.html', ''));
+        })();
+    </script>
 </body>
 </html>
