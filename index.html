@@ -35,6 +35,9 @@ body.dark .footer-note{color:#aaa}
 .dark-toggle{position:fixed;top:15px;right:15px;z-index:999;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;padding:8px 14px;border-radius:20px;cursor:pointer;font-size:0.9rem;backdrop-filter:blur(6px);transition:0.3s}
 .dark-toggle:hover{background:rgba(255,255,255,0.25)}
 
+.debug-info{background:#ffeaa7;color:#2d3436;padding:10px;border-radius:8px;margin-top:10px;font-size:0.85rem;display:none}
+.debug-info.visible{display:block}
+
 @media(max-width:500px){
 body{padding:10px}
 .container{padding:15px 15px 18px 15px}
@@ -94,12 +97,59 @@ Välkommen till QuizOrd!<br>
 <div class="game-thumbnail">
 <img src="Thumbnail.png" alt="QuizOrd teaser">
 </div>
-<a href="game.html" class="cta-button">▶️ Starta spelet</a><p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
+<button class="cta-button" onclick="startaSpelet()">▶️ Starta spelet</button>
+<div class="debug-info" id="debugInfo"></div>
+</div>
+<div class="footer">
+<p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
 <p class="footer-note">QuizOrd — Utvecklat med ❤️ för ordälskare</p>
 </div>
 </div>
 <script>
 function toggleDark(){document.body.classList.toggle('dark');const b=document.getElementById('darkToggle');b.textContent=document.body.classList.contains('dark')?'☀️ Light mode':'🌙 Dark mode';}
+
+function startaSpelet(){
+    var debug = document.getElementById('debugInfo');
+    debug.classList.add('visible');
+    debug.innerHTML = '🔍 Försöker hitta game.html...<br>';
+    
+    var paths = [
+        'game.html',
+        './game.html',
+        '/game.html',
+        '/main/game.html',
+        '../game.html',
+        '../main/game.html'
+    ];
+    
+    var found = false;
+    
+    paths.forEach(function(path) {
+        var testUrl = path;
+        debug.innerHTML += '📝 Testar: ' + testUrl + '<br>';
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('HEAD', testUrl, false);
+        try {
+            xhr.send();
+            if (xhr.status === 200 || xhr.status === 304) {
+                debug.innerHTML += '✅ HITTAD! Startar: ' + testUrl + '<br>';
+                window.location.href = testUrl;
+                found = true;
+            } else {
+                debug.innerHTML += '❌ ' + testUrl + ' = ' + xhr.status + '<br>';
+            }
+        } catch(e) {
+            debug.innerHTML += '❌ ' + testUrl + ' = fel (' + e.message + ')<br>';
+        }
+    });
+    
+    if (!found) {
+        debug.innerHTML += '<br>😟 Ingen sökväg fungerade.<br>';
+        debug.innerHTML += '👉 Testa att skriva in hela URL:en manuellt:<br>';
+        debug.innerHTML += 'https://quizord.github.io/.../game.html';
+    }
+}
 </script>
 </body>
 </html>
