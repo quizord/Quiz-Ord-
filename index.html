@@ -1,262 +1,228 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>QuizOrd - Gåtfull Ordlek</title>
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-            max-width: 650px;
-            width: 100%;
-            padding: 30px 35px 40px 35px;
-            text-align: center;
-        }
-        
-        .logo-container {
-            margin-bottom: 20px;
-        }
-        
-        .logo-container img {
-            max-width: 300px;
-            width: 80%;
-            height: auto;
-        }
-        
-        .welcome-text {
-            color: #333;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin: 0 0 30px 0;
-            font-weight: 500;
-        }
-        
-        .welcome-text .highlight {
-            font-weight: 700;
-        }
-        
-        .highlight-read {
-            color: #e74c3c;
-        }
-        
-        .highlight-solve {
-            color: #2c5aa0;
-        }
-        
-        .highlight-crack {
-            color: #27ae60;
-        }
-        
-        .game-card {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border: 2px solid #667eea;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 0 0 15px 0;
-        }
-        
-        .game-thumbnail {
-            width: 100%;
-            height: 350px;
-            background: white;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            border: 2px solid #ddd;
-            overflow: hidden;
-        }
-        
-        .game-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 16px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-        }
-        
-        .footer {
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9rem;
-        }
-        
-        .footer-note {
-            color: #888;
-            font-size: 0.85rem;
-            margin-top: 8px;
-            font-style: italic;
-        }
-        
-        /* Mobil - staplat */
-        @media (max-width: 500px) {
-            .container {
-                padding: 25px 20px 30px 20px;
-            }
-            .welcome-text {
-                font-size: 1rem;
-            }
-            .game-thumbnail {
-                height: 250px;
-            }
-            .cta-button {
-                padding: 14px 35px;
-                font-size: 1rem;
-            }
-            .logo-container img {
-                max-width: 220px;
-            }
-        }
-        
-        /* iPad stående - samma som mobil */
-        @media (min-width: 501px) and (max-width: 1024px) and (orientation: portrait) {
-            .container {
-                padding: 25px 20px 30px 20px;
-            }
-            .welcome-text {
-                font-size: 1rem;
-            }
-            .game-thumbnail {
-                height: 280px;
-            }
-            .cta-button {
-                padding: 14px 35px;
-                font-size: 1rem;
-            }
-            .logo-container img {
-                max-width: 220px;
-            }
-        }
-        
-        /* iPad liggande + Desktop liggande - KOMPAKT */
-        @media (min-width: 501px) and (orientation: landscape) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 15px 35px 20px 35px;
-                max-width: 750px;
-            }
-            .logo-container {
-                margin-bottom: 8px;
-            }
-            .logo-container img {
-                max-width: 140px;
-            }
-            .welcome-text {
-                font-size: 0.95rem;
-                margin: 0 0 10px 0;
-                line-height: 1.5;
-            }
-            .game-card {
-                padding: 12px;
-                margin: 0 0 8px 0;
-            }
-            .game-thumbnail {
-                height: 200px;
-                margin-bottom: 12px;
-            }
-            .cta-button {
-                padding: 10px 35px;
-                font-size: 1rem;
-            }
-            .footer {
-                padding-top: 10px;
-                font-size: 0.8rem;
-            }
-            .footer-note {
-                font-size: 0.75rem;
-                margin-top: 4px;
-            }
-        }
+/* ---- BAS ---- */
+* { box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    min-height: 100dvh; /* bättre på mobil */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* Desktop liggande - ännu mer kompakt vid höga upplösningar */
-        @media (min-width: 1025px) and (orientation: landscape) {
-            .container {
-                padding: 12px 35px 15px 35px;
-                max-width: 700px;
-            }
-            .logo-container img {
-                max-width: 120px;
-            }
-            .welcome-text {
-                font-size: 0.85rem;
-                margin: 0 0 8px 0;
-            }
-            .game-thumbnail {
-                height: 180px;
-                margin-bottom: 10px;
-            }
-            .cta-button {
-                padding: 8px 30px;
-                font-size: 0.9rem;
-            }
-            .footer {
-                padding-top: 8px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        
-        <div class="logo-container">
-            <img src="logo.png" alt="QuizOrd Logga">
-        </div>
-        
-        <div class="welcome-text">
-            Välkommen till QuizOrd!<br>
-            <span class="highlight highlight-read">LÄS</span> gåtan · 
-            <span class="highlight highlight-solve">LÖS</span> korsordet · 
-            <span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
-        </div>
-        
-        <div class="game-card">
-            <div class="game-thumbnail">
-                <img src="Thumbnail.png" alt="QuizOrd teaser">
-            </div>
-            <a href="game.html" class="cta-button">▶️ Starta spelet</a>
-        </div>
-        
-        <div class="footer">
-            <p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
-            <p class="footer-note">QuizOrd — Utvecklat med ❤️ för ordälskare</p>
-        </div>
-        
-    </div>
-</body>
-</html>
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    max-width: 650px;
+    width: 100%;
+    padding: 30px 35px 40px 35px;
+    text-align: center;
+}
+
+.logo-container { margin-bottom: 20px; }
+.logo-container img { max-width: 300px; width: 80%; height: auto; }
+
+.welcome-text {
+    color: #333;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0 0 30px 0;
+    font-weight: 500;
+}
+.welcome-text .highlight { font-weight: 700; }
+.highlight-read  { color: #c0392b; } /* högre kontrast */
+.highlight-solve { color: #1a4f8a; } /* högre kontrast */
+.highlight-crack { color: #1e8449; } /* högre kontrast */
+
+.game-card {
+    background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+    border: 2px solid #667eea;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0 0 15px 0;
+}
+.game-thumbnail {
+    width: 100%;
+    height: 350px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+}
+.game-thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 16px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    min-height: 48px; /* tillgänglighetskrav */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.footer {
+    padding-top: 20px;
+    border-top: 1px solid #ddd; /* högre kontrast */
+    color: #777; /* högre kontrast */
+    font-size: 0.9rem;
+}
+.footer-note {
+    color: #777;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+
+/* ---- MOBIL STÅENDE (max 500px) ---- */
+/* Utmaning: allt måste rymmas på höjden utan scroll */
+@media (max-width: 500px) {
+    body { padding: 10px; }
+    .container {
+        padding: 15px 15px 18px 15px;
+    }
+    .logo-container {
+        margin-bottom: 6px;
+    }
+    .logo-container img {
+        max-width: 160px;
+    }
+    .welcome-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0 0 10px 0;
+    }
+    .game-card {
+        padding: 10px;
+        margin: 0 0 8px 0;
+    }
+    .game-thumbnail {
+        height: 180px;  /* kortare */
+        margin-bottom: 10px;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    .footer {
+        padding-top: 10px;
+        font-size: 0.8rem;
+    }
+    .footer-note {
+        font-size: 0.75rem;
+        margin-top: 4px;
+    }
+}
+
+
+/* ---- iPAD STÅENDE (501-1024px, portrait) ---- */
+/* Bra som original, mindre justeringar */
+@media (min-width: 501px) and (max-width: 1024px) and (orientation: portrait) {
+    .container { padding: 25px 25px 30px 25px; }
+    .game-thumbnail { height: 300px; }
+    .logo-container img { max-width: 240px; }
+}
+
+
+/* ---- iPAD LIGGANDE (501-1024px, landscape) ---- */
+/* Utmaning: fylla skärmen utan scroll */
+@media (min-width: 501px) and (max-width: 1024px) and (orientation: landscape) {
+    body { padding: 12px; }
+    .container {
+        padding: 18px 40px 22px 40px;
+        max-width: 900px;  /* bredare! fyller mer av iPad-skärmen */
+    }
+    .logo-container {
+        margin-bottom: 6px;
+    }
+    .logo-container img {
+        max-width: 130px;
+    }
+    .welcome-text {
+        font-size: 0.95rem;
+        margin: 0 0 8px 0;
+        line-height: 1.5;
+    }
+    .game-card {
+        padding: 14px 20px;
+        margin: 0 0 10px 0;
+    }
+    .game-thumbnail {
+        height: 260px;  /* högre - utnyttjar liggande yta */
+        margin-bottom: 14px;
+    }
+    .cta-button {
+        padding: 12px 40px;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    .footer {
+        padding-top: 10px;
+        font-size: 0.8rem;
+    }
+    .footer-note {
+        font-size: 0.75rem;
+        margin-top: 4px;
+    }
+}
+
+
+/* ---- DESKTOP LIGGANDE (1025px+) ---- */
+/* Kompakt men bekvämt */
+@media (min-width: 1025px) and (orientation: landscape) {
+    body { padding: 10px; }
+    .container {
+        padding: 14px 35px 18px 35px;
+        max-width: 700px;
+    }
+    .logo-container { margin-bottom: 6px; }
+    .logo-container img { max-width: 120px; }
+    .welcome-text {
+        font-size: 0.9rem;
+        margin: 0 0 8px 0;
+        line-height: 1.5;
+    }
+    .game-card {
+        padding: 12px;
+        margin: 0 0 8px 0;
+    }
+    .game-thumbnail {
+        height: 200px;
+        margin-bottom: 12px;
+    }
+    .cta-button {
+        padding: 10px 35px;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+    .footer {
+        padding-top: 10px;
+        font-size: 0.8rem;
+    }
+    .footer-note {
+        font-size: 0.75rem;
+        margin-top: 4px;
+    }
+}
