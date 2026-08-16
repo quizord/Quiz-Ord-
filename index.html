@@ -4,104 +4,429 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QuizOrd - Gåtfull Ordlek</title>
+<meta name="description" content="QuizOrd - Språkliga gåtor med minikorsord. Lös gåtan, fyll i korsordet, knäck den kryptiska ord-nöten!">
+<meta name="keywords" content="ordspel, gåtor, korsord, språklek, QuizOrd, ordlek">
+<meta property="og:title" content="QuizOrd - Gåtfull Ordlek">
+<meta property="og:description" content="LÄS gåtan · LÖS korsordet · KNÄCK den kryptiska ord-nöten!">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dittanvandarnamn.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QuizOrd - Gåtfull Ordlek">
+<meta name="twitter:description" content="LÄS gåtan · LÖS korsordet · KNÄCK den kryptiska ord-nöten!">
+
 <style>
 *{box-sizing:border-box}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);margin:0;padding:20px;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center}
-.container{background:rgba(255,255,255,0.95);border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.4);max-width:650px;width:100%;padding:30px 35px 40px 35px;text-align:center;transition:background 0.3s}
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
+    margin:0;
+    padding:20px;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background 0.5s ease;
+}
+
+.container{
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    max-width:800px;
+    width:100%;
+    padding:30px 35px 40px 35px;
+    text-align:center;
+    transition:background 0.3s, box-shadow 0.3s;
+}
+
 .logo-container{margin-bottom:20px}
 .logo-container img{max-width:300px;width:80%;height:auto}
-.welcome-text{color:#333;font-size:1.2rem;line-height:1.8;margin:0 0 30px 0;font-weight:500;transition:color 0.3s}
+
+.welcome-text{
+    color:#333;
+    font-size:1.2rem;
+    line-height:1.8;
+    margin:0 0 30px 0;
+    font-weight:500;
+    transition:color 0.3s;
+}
+
 .welcome-text .highlight{font-weight:700}
 .highlight-read{color:#c0392b}
 .highlight-solve{color:#1a4f8a}
 .highlight-crack{color:#1e8449}
-.game-card{background:linear-gradient(135deg,#667eea15 0%,#764ba215 100%);border:2px solid #667eea;border-radius:15px;padding:20px;margin:0 auto 15px auto;max-width:500px;transition:border-color 0.3s}
-.game-thumbnail{width:100%;height:350px;background:white;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:2px solid #ddd;overflow:hidden;transition:background 0.3s,border-color 0.3s}
-.game-thumbnail img{width:100%;height:100%;object-fit:contain}
-.cta-button{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:16px 50px;border-radius:50px;text-decoration:none;font-weight:bold;font-size:1.2rem;border:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 5px 15px rgba(102,126,234,0.3);min-height:48px}
-.cta-button:hover{transform:scale(1.05);box-shadow:0 8px 25px rgba(102,126,234,0.5)}
-.footer{padding-top:20px;border-top:1px solid #ddd;color:#777;font-size:0.9rem;transition:color 0.3s,border-color 0.3s}
-.footer-note{color:#777;font-size:0.85rem;margin-top:8px;font-style:italic;transition:color 0.3s}
 
-body.dark{background:linear-gradient(135deg,#0d0d1a 0%,#0f0f2e 50%,#1a1a4e 100%)}
-body.dark .container{background:rgba(22,33,62,0.97)}
+/* Spelmeny */
+.game-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
+    margin:20px auto;
+    max-width:900px;
+}
+
+.game-card{
+    background:linear-gradient(135deg,#667eea15 0%,#764ba215 100%);
+    border:2px solid #667eea;
+    border-radius:15px;
+    padding:20px;
+    transition:all 0.3s ease;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.game-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px rgba(102,126,234,0.3);
+    border-color:#764ba2;
+}
+
+.game-card.featured{
+    grid-column:1 / -1;
+    max-width:600px;
+    margin:0 auto;
+    background:linear-gradient(135deg,#667eea25 0%,#764ba225 100%);
+    border-width:3px;
+}
+
+.game-card h3{
+    color:#333;
+    margin:15px 0 5px 0;
+    font-size:1.3rem;
+    transition:color 0.3s;
+}
+
+.game-thumbnail{
+    width:100%;
+    height:200px;
+    background:white;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:15px;
+    border:2px solid #ddd;
+    overflow:hidden;
+    transition:background 0.3s, border-color 0.3s;
+}
+
+.game-thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.game-desc{
+    color:#555;
+    font-size:0.9rem;
+    margin:5px 0 15px 0;
+    line-height:1.4;
+    transition:color 0.3s;
+}
+
+.cta-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    color:white;
+    padding:14px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:1.1rem;
+    border:none;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    box-shadow:0 5px 15px rgba(102,126,234,0.3);
+    min-height:48px;
+    margin-top:auto;
+}
+
+.cta-button:hover{
+    transform:scale(1.05);
+    box-shadow:0 8px 25px rgba(102,126,234,0.5);
+}
+
+.cta-button.disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+    transform:none !important;
+}
+
+.coming-soon-badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#f39c12;
+    color:white;
+    padding:5px 12px;
+    border-radius:15px;
+    font-size:0.8rem;
+    font-weight:bold;
+    z-index:10;
+}
+
+/* Statistik */
+.stats-section{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:30px 0;
+    flex-wrap:wrap;
+}
+
+.stat-item{
+    text-align:center;
+    min-width:100px;
+    padding:10px;
+}
+
+.stat-number{
+    display:block;
+    font-size:2rem;
+    font-weight:bold;
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+.stat-label{
+    display:block;
+    font-size:0.85rem;
+    color:#666;
+    margin-top:5px;
+    transition:color 0.3s;
+}
+
+.footer{
+    padding-top:20px;
+    border-top:1px solid #ddd;
+    color:#777;
+    font-size:0.9rem;
+    transition:color 0.3s, border-color 0.3s;
+}
+
+.footer-note{
+    color:#777;
+    font-size:0.85rem;
+    margin-top:8px;
+    font-style:italic;
+    transition:color 0.3s;
+}
+
+/* Dark mode */
+body.dark{
+    background:linear-gradient(135deg,#0d0d1a 0%,#0f0f2e 50%,#1a1a4e 100%);
+}
+
+body.dark .container{
+    background:rgba(22,33,62,0.97);
+    box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
 body.dark .welcome-text{color:#e0e0e0}
-body.dark .game-card{border-color:#4a6cf7}
-body.dark .game-thumbnail{background:#1a1a3e;border-color:#333}
-body.dark .footer{border-top-color:#333;color:#aaa}
+body.dark .game-card{
+    border-color:#4a6cf7;
+    background:linear-gradient(135deg,#4a6cf715 0%,#764ba215 100%);
+}
+body.dark .game-card h3{color:#e0e0e0}
+body.dark .game-thumbnail{
+    background:#1a1a3e;
+    border-color:#333;
+}
+body.dark .game-desc{color:#bbb}
+body.dark .footer{
+    border-top-color:#333;
+    color:#aaa;
+}
 body.dark .footer-note{color:#aaa}
+body.dark .stat-label{color:#aaa}
 
-.dark-toggle{position:fixed;top:15px;right:15px;z-index:999;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;padding:8px 14px;border-radius:20px;cursor:pointer;font-size:0.9rem;backdrop-filter:blur(6px);transition:0.3s}
-.dark-toggle:hover{background:rgba(255,255,255,0.25)}
+.dark-toggle{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:999;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.3);
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:0.9rem;
+    backdrop-filter:blur(6px);
+    transition:0.3s;
+}
 
+.dark-toggle:hover{
+    background:rgba(255,255,255,0.25);
+}
+
+/* Responsiv design */
 @media(max-width:500px){
-body{padding:10px}
-.container{padding:15px 15px 18px 15px}
-.logo-container{margin-bottom:6px}
-.logo-container img{max-width:160px}
-.welcome-text{font-size:0.95rem;line-height:1.5;margin:0 0 10px 0}
-.game-card{padding:10px;margin:0 auto 8px auto}
-.game-thumbnail{height:180px;margin-bottom:10px}
-.cta-button{padding:12px 30px;font-size:1rem;min-height:44px}
-.footer{padding-top:10px;font-size:0.8rem}
-.footer-note{font-size:0.75rem;margin-top:4px}
+    body{padding:10px}
+    .container{padding:15px 15px 18px 15px}
+    .logo-container{margin-bottom:6px}
+    .logo-container img{max-width:160px}
+    .welcome-text{font-size:0.95rem;line-height:1.5;margin:0 0 10px 0}
+    .game-grid{grid-template-columns:1fr;gap:10px;margin:10px auto}
+    .game-card{padding:10px}
+    .game-thumbnail{height:150px;margin-bottom:10px}
+    .game-card h3{font-size:1.1rem;margin:10px 0 3px 0}
+    .game-desc{font-size:0.8rem;margin:3px 0 10px 0}
+    .cta-button{padding:12px 30px;font-size:1rem;min-height:44px}
+    .stats-section{gap:15px;margin:20px 0}
+    .stat-number{font-size:1.5rem}
+    .footer{padding-top:10px;font-size:0.8rem}
+    .footer-note{font-size:0.75rem;margin-top:4px}
 }
+
 @media(min-width:501px) and (max-width:1024px) and (orientation:portrait){
-.container{padding:25px 25px 30px 25px}
-.game-thumbnail{height:300px}
-.logo-container img{max-width:240px}
+    .container{padding:25px 25px 30px 25px}
+    .game-thumbnail{height:200px}
+    .logo-container img{max-width:240px}
+    .game-grid{grid-template-columns:1fr;max-width:500px}
 }
+
 @media(min-width:501px) and (max-width:1024px) and (orientation:landscape){
-body{padding:10px}
-.container{padding:18px 30px 22px 30px;max-width:800px}
-.logo-container{margin-bottom:5px}
-.logo-container img{max-width:120px}
-.welcome-text{font-size:1rem;margin:0 0 10px 0;line-height:1.5}
-.game-card{padding:18px 22px;margin:0 auto 10px auto;max-width:520px}
-.game-thumbnail{height:240px;margin-bottom:16px}
-.cta-button{padding:14px 44px;font-size:1.1rem;min-height:44px}
-.footer{padding-top:8px;font-size:0.8rem}
-.footer-note{font-size:0.75rem;margin-top:3px}
+    body{padding:10px}
+    .container{padding:18px 30px 22px 30px;max-width:900px}
+    .logo-container{margin-bottom:5px}
+    .logo-container img{max-width:120px}
+    .welcome-text{font-size:1rem;margin:0 0 10px 0;line-height:1.5}
+    .game-grid{grid-template-columns:repeat(2, 1fr);gap:15px}
+    .game-card{padding:18px 22px}
+    .game-thumbnail{height:180px;margin-bottom:16px}
+    .cta-button{padding:14px 44px;font-size:1.1rem;min-height:44px}
+    .footer{padding-top:8px;font-size:0.8rem}
+    .footer-note{font-size:0.75rem;margin-top:3px}
 }
+
 @media(min-width:1025px) and (orientation:landscape){
-body{padding:10px}
-.container{padding:14px 35px 18px 35px;max-width:700px}
-.logo-container{margin-bottom:5px}
-.logo-container img{max-width:110px}
-.welcome-text{font-size:0.95rem;margin:0 0 8px 0;line-height:1.5}
-.game-card{padding:14px 20px;margin:0 auto 8px auto;max-width:480px}
-.game-thumbnail{height:200px;margin-bottom:14px}
-.cta-button{padding:12px 36px;font-size:1rem;min-height:44px}
-.footer{padding-top:8px;font-size:0.8rem}
-.footer-note{font-size:0.75rem;margin-top:3px}
+    body{padding:10px}
+    .container{padding:14px 35px 18px 35px;max-width:900px}
+    .logo-container{margin-bottom:5px}
+    .logo-container img{max-width:110px}
+    .welcome-text{font-size:0.95rem;margin:0 0 8px 0;line-height:1.5}
+    .game-grid{grid-template-columns:repeat(3, 1fr);gap:20px}
+    .game-card{padding:14px 20px}
+    .game-thumbnail{height:180px;margin-bottom:14px}
+    .cta-button{padding:12px 36px;font-size:1rem;min-height:44px}
+    .footer{padding-top:8px;font-size:0.8rem}
+    .footer-note{font-size:0.75rem;margin-top:3px}
 }
 </style>
 </head>
 <body>
 <button class="dark-toggle" onclick="toggleDark()" id="darkToggle">🌙 Dark mode</button>
+
 <div class="container">
-<div class="logo-container">
-<img src="logo.png" alt="QuizOrd Logga">
+    <div class="logo-container">
+        <img src="logo.png" alt="QuizOrd Logga">
+    </div>
+    
+    <div class="welcome-text">
+        Välkommen till QuizOrd!<br>
+        <span class="highlight highlight-read">LÄS</span> gåtan · 
+        <span class="highlight highlight-solve">LÖS</span> korsordet · 
+        <span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
+    </div>
+    
+    <!-- Spelmeny -->
+    <div class="game-grid">
+        <!-- Huvudspelet -->
+        <div class="game-card featured">
+            <div class="game-thumbnail">
+                <img src="Thumbnail.png" alt="QuizOrd teaser">
+            </div>
+            <h3>Klassisk QuizOrd</h3>
+            <p class="game-desc">Gåta + minikorsord + nyckelord = klurig utmaning!</p>
+            <a href="game.html" class="cta-button">▶️ Starta spelet</a>
+        </div>
+        
+        <!-- Kommande spel 1 -->
+        <div class="game-card">
+            <div class="coming-soon-badge">🚧 Kommer snart</div>
+            <div class="game-thumbnail" style="background:linear-gradient(135deg,#f5f5f5 0%,#e0e0e0 100%);">
+                <span style="font-size:3rem;">🧩</span>
+            </div>
+            <h3>QuizOrd Junior</h3>
+            <p class="game-desc">Enklare gåtor för yngre ordälskare</p>
+            <button class="cta-button disabled" disabled>⏳ Planerad</button>
+        </div>
+        
+        <!-- Kommande spel 2 -->
+        <div class="game-card">
+            <div class="coming-soon-badge">🚧 Kommer snart</div>
+            <div class="game-thumbnail" style="background:linear-gradient(135deg,#f5f5f5 0%,#e0e0e0 100%);">
+                <span style="font-size:3rem;">📅</span>
+            </div>
+            <h3>Dagens utmaning</h3>
+            <p class="game-desc">En ny gåta varje dag - håll hjärnan igång!</p>
+            <button class="cta-button disabled" disabled>⏳ Planerad</button>
+        </div>
+    </div>
+    
+    <!-- Statistik -->
+    <div class="stats-section">
+        <div class="stat-item">
+            <span class="stat-number" id="gamesPlayed">0</span>
+            <span class="stat-label">Spelade omgångar</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Gåtor tillgängliga</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Steg till lösning</span>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
+        <p class="footer-note">QuizOrd — Utvecklat med ❤️ för ordälskare</p>
+    </div>
 </div>
-<div class="welcome-text">
-Välkommen till QuizOrd!<br>
-<span class="highlight highlight-read">LÄS</span> gåtan · 
-<span class="highlight highlight-solve">LÖS</span> korsordet · 
-<span class="highlight highlight-crack">KNÄCK</span> den kryptiska ord-nöten tillsammans!
-</div>
-<div class="game-card">
-<div class="game-thumbnail">
-<img src="Thumbnail.png" alt="QuizOrd teaser">
-</div>
-<a href="game.html" class="cta-button">▶️ Starta spelet</a>
-</div>
-<div class="footer">
-<p>💡 Tips: Spela gärna tillsammans med någon – två hjärnor är bättre än en!</p>
-<p class="footer-note">QuizOrd — Utvecklat med ❤️ för ordälskare</p>
-</div>
-</div>
+
 <script>
-function toggleDark(){document.body.classList.toggle('dark');const b=document.getElementById('darkToggle');b.textContent=document.body.classList.contains('dark')?'☀️ Light mode':'🌙 Dark mode';}
+// Dark mode-funktion
+function toggleDark(){
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    const b = document.getElementById('darkToggle');
+    b.textContent = isDark ? '☀️ Light mode' : '🌙 Dark mode';
+    // Spara inställningen
+    localStorage.setItem('quizord-dark-mode', isDark);
+}
+
+// Läs in dark mode från localStorage
+if(localStorage.getItem('quizord-dark-mode') === 'true') {
+    document.body.classList.add('dark');
+    document.getElementById('darkToggle').textContent = '☀️ Light mode';
+}
+
+// Uppdatera statistik
+function updateStats() {
+    const gamesPlayed = parseInt(localStorage.getItem('quizord-games-played') || '0');
+    document.getElementById('gamesPlayed').textContent = gamesPlayed;
+}
+
+// Lyssna på storage-ändringar från andra flikar
+window.addEventListener('storage', (e) => {
+    if (e.key === 'quizord-games-played') {
+        updateStats();
+    }
+});
+
+// Uppdatera statistiken när sidan laddas
+updateStats();
 </script>
 </body>
 </html>
